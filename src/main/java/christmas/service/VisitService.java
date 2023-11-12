@@ -2,6 +2,7 @@ package christmas.service;
 
 import christmas.domain.Visit;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class VisitService {
@@ -17,5 +18,9 @@ public class VisitService {
 
     public void initOrder(List<String> menuOrders) {
         visit.initOrder(menuOrders);
+    }
+
+    public LocalDate getVisitDate() {
+        return this.visit.getDate();
     }
 }

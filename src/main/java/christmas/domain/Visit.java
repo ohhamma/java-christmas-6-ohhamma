@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class Visit {
@@ -12,5 +13,9 @@ public class Visit {
 
     public void initOrder(List<String> menuOrders) {
         this.order = OrderGenerator.generate(menuOrders);
+    }
+
+    public LocalDate getDate() {
+        return date.getDate();
     }
 }

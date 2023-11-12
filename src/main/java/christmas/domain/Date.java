@@ -1,22 +1,33 @@
 package christmas.domain;
 
-public class Date {
-    private static final int RANGE_MIN = 1;
-    private static final int RANGE_MAX = 31;
-    private final int date;
+import java.time.DateTimeException;
+import java.time.LocalDate;
 
-    private Date(final int date) {
-        validateRange(date);
+public class Date {
+    private static final LocalDate DATE_MIN = LocalDate.of(2023, 12, 1);
+    private static final LocalDate DATE_MAX = LocalDate.of(2023, 12, 31);
+    private final LocalDate date;
+
+    private Date(final LocalDate date) {
+        validate(date);
         this.date = date;
     }
 
     public static Date from(final int date) {
-        return new Date(date);
-    }
-
-    private static void validateRange(int number) {
-        if (number < RANGE_MIN || number > RANGE_MAX) {
+        try {
+            return new Date(LocalDate.of(2023, 12, date));
+        } catch (DateTimeException e) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_DATE.getMessage());
         }
+    }
+
+    private static void validate(LocalDate date) {
+        if (date.isBefore(DATE_MIN) || date.isAfter(DATE_MAX)) {
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_DATE.getMessage());
+        }
+    }
+
+    public LocalDate getDate() {
+        return this.date;
     }
 }

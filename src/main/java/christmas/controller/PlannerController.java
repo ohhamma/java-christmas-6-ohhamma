@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.service.DiscountService;
 import christmas.service.VisitService;
 import christmas.view.InputView;
 import christmas.view.OutputView;
@@ -10,17 +11,20 @@ public class PlannerController {
     private final InputView inputView;
     private final OutputView outputView;
     private final VisitService visitService;
+    private final DiscountService discountService;
 
     public PlannerController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.visitService = new VisitService();
+        this.discountService = new DiscountService();
     }
 
     public void run() {
         introduce();
         inputDate();
         inputOrder();
+        calculateDiscount();
     }
 
     private void introduce() {
@@ -46,5 +50,9 @@ public class PlannerController {
             outputView.printException(e.getMessage());
             inputOrder();
         }
+    }
+
+    private void calculateDiscount() {
+        discountService.initChristmasDiscount(visitService.getVisitDate());
     }
 }
