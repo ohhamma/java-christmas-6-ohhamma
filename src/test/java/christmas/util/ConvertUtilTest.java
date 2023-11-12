@@ -13,7 +13,7 @@ class ConvertUtilTest {
     @ParameterizedTest
     @NullSource
     void inputIsNull(String input) {
-        assertThatThrownBy(() -> ConvertUtil.convertToNumber(input))
+        assertThatThrownBy(() -> ConvertUtil.convertToDate(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -21,7 +21,7 @@ class ConvertUtilTest {
     @ParameterizedTest
     @EmptySource
     void inputIsEmpty(String input) {
-        assertThatThrownBy(() -> ConvertUtil.convertToNumber(input))
+        assertThatThrownBy(() -> ConvertUtil.convertToDate(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -29,7 +29,7 @@ class ConvertUtilTest {
     @ValueSource(strings = {"+", "-", "1a", "a1", "1+", "1-"})
     @ParameterizedTest
     void inputNotNumber(String input) {
-        assertThatThrownBy(() -> ConvertUtil.convertToNumber(input))
+        assertThatThrownBy(() -> ConvertUtil.convertToDate(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

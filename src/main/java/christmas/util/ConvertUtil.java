@@ -6,13 +6,19 @@ public class ConvertUtil {
     private ConvertUtil() {
     }
 
-    public static int convertToNumber(String input) {
-        int number;
+    public static int convertToDate(String input) {
         try {
-            number = Integer.parseInt(input);
+            return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ExceptionMessage.WRONG_DATE.getMessage());
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_DATE.getMessage());
         }
-        return number;
+    }
+
+    public static int convertToMenuNumber(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_ORDER.getMessage());
+        }
     }
 }

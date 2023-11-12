@@ -13,6 +13,6 @@ class DateTest {
     void dateOutOfRange(int date) {
         assertThatThrownBy(() -> Date.from(date))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ExceptionMessage.WRONG_DATE.getMessage());
+                .hasMessage(ExceptionMessage.INVALID_DATE.getMessage());
     }
 }

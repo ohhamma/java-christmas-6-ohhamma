@@ -4,6 +4,8 @@ import christmas.service.VisitService;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
+import java.util.Map;
+
 public class PlannerController {
     private final InputView inputView;
     private final OutputView outputView;
@@ -18,6 +20,7 @@ public class PlannerController {
     public void run() {
         introduce();
         inputDate();
+        inputOrder();
     }
 
     private void introduce() {
@@ -32,6 +35,16 @@ public class PlannerController {
         } catch (IllegalArgumentException e) {
             outputView.printException(e.getMessage());
             inputDate();
+        }
+    }
+
+    private void inputOrder() {
+        try {
+            Map<String, Integer> orderNumberByMenu = inputView.readOrder();
+            visitService.initOrder(orderNumberByMenu);
+        } catch (IllegalArgumentException e) {
+            outputView.printException(e.getMessage());
+            inputOrder();
         }
     }
 }

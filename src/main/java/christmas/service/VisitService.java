@@ -2,6 +2,8 @@ package christmas.service;
 
 import christmas.domain.Visit;
 
+import java.util.Map;
+
 public class VisitService {
     private Visit visit;
 
@@ -11,5 +13,9 @@ public class VisitService {
 
     public void initVisitDate(int date) {
         visit.initVisitDate(date);
+    }
+
+    public void initOrder(Map<String, Integer> orderNumberByMenu) {
+        visit.initOrder(orderNumberByMenu);
     }
 }
