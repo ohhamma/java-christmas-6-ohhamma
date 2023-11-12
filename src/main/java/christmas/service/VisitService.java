@@ -2,7 +2,6 @@ package christmas.service;
 
 import christmas.domain.Visit;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public class VisitService {
@@ -20,7 +19,7 @@ public class VisitService {
         visit.initOrder(menuOrders);
     }
 
-    public LocalDate getVisitDate() {
-        return this.visit.getDate();
+    public Visit getVisit() {
+        return visit;
     }
 }

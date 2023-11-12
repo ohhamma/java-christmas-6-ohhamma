@@ -20,14 +20,6 @@ public enum MenuGroup {
         this.menus = menus;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public List<Menu> getMenus() {
-        return menus;
-    }
-
     public static MenuGroup getMenuGroupByMenu(Menu menu) {
         return Arrays.stream(MenuGroup.values())
                 .filter(menuGroup -> menuGroup.hasMenu(menu))
@@ -35,7 +27,7 @@ public enum MenuGroup {
                 .orElse(EMPTY);
     }
 
-    private boolean hasMenu(Menu menu) {
+    public boolean hasMenu(Menu menu) {
         return menus.stream()
                 .anyMatch(m -> m == menu);
     }

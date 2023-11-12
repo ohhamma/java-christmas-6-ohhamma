@@ -53,6 +53,6 @@ public class PlannerController {
     }
 
     private void calculateDiscount() {
-        discountService.initChristmasDiscount(visitService.getVisitDate());
+        discountService.initDiscounts(visitService.getVisit());
     }
 }

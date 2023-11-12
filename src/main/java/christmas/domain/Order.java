@@ -20,6 +20,14 @@ public class Order {
         return new Order(order);
     }
 
+    public int countMenuByMenuGroup(MenuGroup menuGroup) {
+        return order.keySet()
+                .stream()
+                .filter(menuGroup::hasMenu)
+                .mapToInt(order::get)
+                .sum();
+    }
+
     private void validateMenuName(EnumMap<Menu, Integer> order) {
         if (order.getOrDefault(Menu.INVALID, 0) > 0) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_ORDER.getMessage());

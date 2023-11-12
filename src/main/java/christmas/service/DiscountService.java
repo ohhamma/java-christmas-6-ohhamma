@@ -1,13 +1,13 @@
 package christmas.service;
 
-import christmas.domain.ChristmasDiscount;
-
-import java.time.LocalDate;
+import christmas.domain.Discounts;
+import christmas.domain.DiscountsGenerator;
+import christmas.domain.Visit;
 
 public class DiscountService {
-    private ChristmasDiscount christmasDiscount;
+    Discounts discounts;
 
-    public void initChristmasDiscount(LocalDate visitDate) {
-        this.christmasDiscount = ChristmasDiscount.from(visitDate);
+    public void initDiscounts(Visit visit) {
+        this.discounts = DiscountsGenerator.generate(visit);
     }
 }
