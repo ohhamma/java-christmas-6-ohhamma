@@ -11,6 +11,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class ConvertUtilTest {
     @DisplayName("날짜 입력값이 null인 경우에 대한 예외 처리")
+    @ParameterizedTest
+    @NullSource
     void dateIsNull(String input) {
         assertThatThrownBy(() -> ConvertUtil.convertToDate(input))
                 .isInstanceOf(IllegalArgumentException.class)

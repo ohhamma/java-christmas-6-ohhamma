@@ -24,7 +24,7 @@ public class SplitUtil {
             return menuOrders.stream()
                     .map(menuOrder -> List.of(menuOrder.split(MENU_DELIMITER, -1)))
                     .toList();
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_ORDER.getMessage());
         }
     }

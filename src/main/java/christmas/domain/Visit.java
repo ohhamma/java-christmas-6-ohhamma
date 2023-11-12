@@ -1,7 +1,5 @@
 package christmas.domain;
 
-import christmas.util.OrderGenerator;
-
 import java.util.List;
 
 public class Visit {

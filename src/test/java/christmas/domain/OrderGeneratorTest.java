@@ -1,11 +1,11 @@
-package christmas.util;
+package christmas.domain;
 
-import christmas.domain.ExceptionMessage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
@@ -21,10 +21,23 @@ class OrderGeneratorTest {
     }
 
     @DisplayName("잘못된 주문 형식에 대한 예외 처리")
-    @ValueSource(strings = {",", "해산물파스타 2", "해산물파스타2", "해산물파스타-", "해산물파스타- 2", "해산물파스타 -2", "해산물파스타-2,", ",해산물파스타-2", "해산물파스타-2, 레드와인-1"})
+    @ValueSource(strings = {",", "해산물파스타 2", "해산물파스타2", "해산물파스타-", "해산물파스타- 2", "해산물파스타 -2", "해산물파스타--2", "해산물파스타 --2", "해산물파스타- -2", "해산물파스타 --2", "해산물파스타-2,", ",해산물파스타-2", "해산물파스타-2, 레드와인-1"})
     @ParameterizedTest
     void invalidFormat(String input) {
         assertThatThrownBy(() -> OrderGenerator.generate(List.of(input)))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.INVALID_ORDER.getMessage());
+    }
+
+    @DisplayName("중복을 포함하는 주문에 대한 예외 처리")
+    @ValueSource(strings = {"해산물파스타-2"})
+    @ParameterizedTest
+    void duplicateOrders(String input) {
+        List<String> menuOrders = new ArrayList<>();
+        menuOrders.add(input);
+        menuOrders.add(input);
+
+        assertThatThrownBy(() -> OrderGenerator.generate(menuOrders))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INVALID_ORDER.getMessage());
     }
