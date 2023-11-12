@@ -1,8 +1,8 @@
 package christmas.util;
 
-import java.util.Map;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
+import christmas.domain.ExceptionMessage;
+
+import java.util.List;
 
 public class SplitUtil {
     private static final String ORDER_SPLITERATOR = ",";
@@ -11,10 +11,21 @@ public class SplitUtil {
     private SplitUtil() {
     }
 
-    public static Map<String, Integer> splitIntoMenus(String input) {
-        return Pattern.compile(ORDER_SPLITERATOR)
-                .splitAsStream(input)
-                .map(menu -> menu.split(MENU_DELIMITER, -1))
-                .collect(Collectors.toMap(s -> s[0], s -> ConvertUtil.convertToMenuNumber(s[1])));
+    public static List<String> splitOrder(String input) {
+        try {
+            return List.of(input.split(ORDER_SPLITERATOR, -1));
+        } catch (NullPointerException e) {
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_ORDER.getMessage());
+        }
+    }
+
+    public static List<List<String>> splitMenuOrders(List<String> menuOrders) {
+        try {
+            return menuOrders.stream()
+                    .map(menuOrder -> List.of(menuOrder.split(MENU_DELIMITER, -1)))
+                    .toList();
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_ORDER.getMessage());
+        }
     }
 }

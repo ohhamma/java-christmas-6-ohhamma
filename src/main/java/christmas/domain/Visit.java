@@ -2,7 +2,7 @@ package christmas.domain;
 
 import christmas.util.OrderGenerator;
 
-import java.util.Map;
+import java.util.List;
 
 public class Visit {
     private Date date;
@@ -12,7 +12,7 @@ public class Visit {
         this.date = Date.from(date);
     }
 
-    public void initOrder(Map<String, Integer> orderNumberByMenu) {
-        this.order = OrderGenerator.generate(orderNumberByMenu);
+    public void initOrder(List<String> menuOrders) {
+        this.order = OrderGenerator.generate(menuOrders);
     }
 }

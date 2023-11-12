@@ -2,7 +2,7 @@ package christmas.service;
 
 import christmas.domain.Visit;
 
-import java.util.Map;
+import java.util.List;
 
 public class VisitService {
     private Visit visit;
@@ -15,7 +15,7 @@ public class VisitService {
         visit.initVisitDate(date);
     }
 
-    public void initOrder(Map<String, Integer> orderNumberByMenu) {
-        visit.initOrder(orderNumberByMenu);
+    public void initOrder(List<String> menuOrders) {
+        visit.initOrder(menuOrders);
     }
 }

@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import christmas.util.ConvertUtil;
 import christmas.util.SplitUtil;
 
-import java.util.Map;
+import java.util.List;
 
 public class InputView {
     public int readDate() {
@@ -13,9 +13,9 @@ public class InputView {
         return ConvertUtil.convertToDate(input);
     }
 
-    public Map<String, Integer> readOrder() {
+    public List<String> readOrder() {
         System.out.println(InputMessage.REQUEST_ORDER.getMessage());
         String input = Console.readLine();
-        return SplitUtil.splitIntoMenus(input);
+        return SplitUtil.splitOrder(input);
     }
 }
