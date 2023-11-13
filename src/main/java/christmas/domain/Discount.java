@@ -10,11 +10,15 @@ public interface Discount {
     }
 
     static WeekendDiscount generateWeekendDiscount(final Date visitDate, final Order visitOrder) {
-        return new WeekendDiscount((WeekendDiscount.calculateDiscount(visitDate, visitOrder)));
+        return new WeekendDiscount(WeekendDiscount.calculateDiscount(visitDate, visitOrder));
     }
 
     static SpecialDiscount generateSpecialDiscount(final Date visitDate) {
-        return new SpecialDiscount((SpecialDiscount.calculateDiscount((visitDate))));
+        return new SpecialDiscount(SpecialDiscount.calculateDiscount((visitDate)));
+    }
+
+    static Giveaway generateGiveaway(final Date visitDate, final Order visitOrder) {
+        return new Giveaway(Giveaway.calculateDiscount(visitDate, visitOrder));
     }
 
     int getDiscount();

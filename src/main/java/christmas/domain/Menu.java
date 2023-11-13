@@ -32,4 +32,8 @@ public enum Menu {
                 .findAny()
                 .orElse(INVALID);
     }
+
+    public int getPrice() {
+        return price;
+    }
 }

@@ -28,6 +28,13 @@ public class Order {
                 .sum();
     }
 
+    public int getTotalOrderPrice() {
+        return order.keySet()
+                .stream()
+                .mapToInt(menu -> order.get(menu) * menu.getPrice())
+                .sum();
+    }
+
     private void validateMenuName(EnumMap<Menu, Integer> order) {
         if (order.getOrDefault(Menu.INVALID, 0) > 0) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_ORDER.getMessage());

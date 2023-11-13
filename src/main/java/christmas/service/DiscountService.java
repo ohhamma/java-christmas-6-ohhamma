@@ -10,4 +10,8 @@ public class DiscountService {
     public void initDiscounts(Visit visit) {
         this.discounts = DiscountsGenerator.generate(visit);
     }
+
+    public int getTotalDiscountAmount() {
+        return discounts.getTotalDiscountAmount();
+    }
 }
