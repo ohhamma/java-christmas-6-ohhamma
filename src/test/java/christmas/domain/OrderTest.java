@@ -15,7 +15,7 @@ public class OrderTest {
     @ParameterizedTest
     void menuNameInvalid(String menuName) {
         EnumMap<Menu, Integer> order = new EnumMap<>(Menu.class);
-        order.put(Menu.getMenu(menuName), 1);
+        order.put(Menu.getMenuByName(menuName), 1);
 
         assertThatThrownBy(() -> Order.valueOf(order))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -39,7 +39,7 @@ public class OrderTest {
     @ParameterizedTest
     void onlyBeverages(String menuName) {
         EnumMap<Menu, Integer> order = new EnumMap<>(Menu.class);
-        order.put(Menu.getMenu(menuName), 1);
+        order.put(Menu.getMenuByName(menuName), 1);
 
         assertThatThrownBy(() -> Order.valueOf(order))
                 .isInstanceOf(IllegalArgumentException.class)

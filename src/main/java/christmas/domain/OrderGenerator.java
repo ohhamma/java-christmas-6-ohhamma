@@ -31,7 +31,7 @@ public class OrderGenerator {
     private static EnumMap<Menu, Integer> mapByMenu(Map<String, Integer> numberByMenuName) {
         EnumMap<Menu, Integer> numberByMenu = new EnumMap<>(Menu.class);
         numberByMenuName.forEach((menuName, number)
-                -> numberByMenu.put(Menu.getMenu(menuName), numberByMenu.getOrDefault(Menu.getMenu(menuName), MENU_DEFAULT_NUMBER) + number));
+                -> numberByMenu.put(Menu.getMenuByName(menuName), numberByMenu.getOrDefault(Menu.getMenuByName(menuName), MENU_DEFAULT_NUMBER) + number));
         return numberByMenu;
     }
 

@@ -34,6 +34,6 @@ class GiveawayTest {
 
         Giveaway giveaway = Discount.generateGiveaway(Date.from(25), OrderGenerator.generate(menuOrders));
 
-        assertEquals(-25_000, giveaway.getDiscount());
+        assertEquals(25_000, giveaway.getDiscount());
     }
 }

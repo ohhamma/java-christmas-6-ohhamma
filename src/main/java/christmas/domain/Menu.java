@@ -26,7 +26,7 @@ public enum Menu {
         this.price = price;
     }
 
-    public static Menu getMenu(String name) {
+    public static Menu getMenuByName(String name) {
         return Arrays.stream(Menu.values())
                 .filter(menu -> menu.name.equals(name))
                 .findAny()

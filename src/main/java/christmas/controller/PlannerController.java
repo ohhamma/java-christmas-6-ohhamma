@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.service.BadgeService;
 import christmas.service.DiscountService;
 import christmas.service.VisitService;
 import christmas.view.InputView;
@@ -12,12 +13,14 @@ public class PlannerController {
     private final OutputView outputView;
     private final VisitService visitService;
     private final DiscountService discountService;
+    private final BadgeService badgeService;
 
     public PlannerController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.visitService = new VisitService();
         this.discountService = new DiscountService();
+        this.badgeService = new BadgeService();
     }
 
     public void run() {
@@ -25,6 +28,7 @@ public class PlannerController {
         inputDate();
         inputOrder();
         calculateDiscount();
+        giveBadge();
     }
 
     private void introduce() {
@@ -54,5 +58,9 @@ public class PlannerController {
 
     private void calculateDiscount() {
         discountService.initDiscounts(visitService.getVisit());
+    }
+
+    private void giveBadge() {
+        badgeService.initBadge(discountService.getTotalDiscountAmount());
     }
 }

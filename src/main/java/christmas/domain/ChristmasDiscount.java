@@ -22,6 +22,6 @@ public class ChristmasDiscount implements Discount {
 
     @Override
     public int getDiscount() {
-        return discount * -1;
+        return discount;
     }
 }

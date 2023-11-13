@@ -24,6 +24,6 @@ public class SpecialDiscount implements Discount {
 
     @Override
     public int getDiscount() {
-        return discount * -1;
+        return discount;
     }
 }

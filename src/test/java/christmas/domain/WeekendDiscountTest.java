@@ -21,6 +21,7 @@ class WeekendDiscountTest {
 
         assertEquals(0, weekdayDiscount.getDiscount());
     }
+
     @DisplayName("메인 메뉴가 0개면 할인금액이 0원")
     @ValueSource(strings = {"초코케이크-2", "시저샐러드-1", "양송이수프-3"})
     @ParameterizedTest
@@ -33,7 +34,7 @@ class WeekendDiscountTest {
         assertEquals(0, weekendDiscount.getDiscount());
     }
 
-    @DisplayName("메인 메뉴가 1개면 할인금액이 -2,023원")
+    @DisplayName("메인 메뉴가 1개면 할인금액이 2,023원")
     @ValueSource(strings = {"티본스테이크-1", "바비큐립-1", "해산물파스타-1", "크리스마스파스타-1"})
     @ParameterizedTest
     void dessertMenuOne(String menuOrder) {
@@ -42,10 +43,10 @@ class WeekendDiscountTest {
 
         WeekendDiscount weekendDiscount = Discount.generateWeekendDiscount(Date.from(1), OrderGenerator.generate(menuOrders));
 
-        assertEquals(-2_023, weekendDiscount.getDiscount());
+        assertEquals(2_023, weekendDiscount.getDiscount());
     }
 
-    @DisplayName("메인 메뉴가 2개면 할인금액이 -4,046원")
+    @DisplayName("메인 메뉴가 2개면 할인금액이 4,046원")
     @ValueSource(strings = {"티본스테이크-2", "바비큐립-2", "해산물파스타-2", "크리스마스파스타-2"})
     @ParameterizedTest
     void dessertMenuTwo(String menuOrder) {
@@ -54,6 +55,6 @@ class WeekendDiscountTest {
 
         WeekendDiscount weekendDiscount = Discount.generateWeekendDiscount(Date.from(1), OrderGenerator.generate(menuOrders));
 
-        assertEquals(-4_046, weekendDiscount.getDiscount());
+        assertEquals(4_046, weekendDiscount.getDiscount());
     }
 }

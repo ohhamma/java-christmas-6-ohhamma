@@ -22,6 +22,6 @@ class SpecialDiscountTest {
     void dateIsSpecial(int date) {
         SpecialDiscount specialDiscount = Discount.generateSpecialDiscount(Date.from(date));
 
-        assertEquals(-1_000, specialDiscount.getDiscount());
+        assertEquals(1_000, specialDiscount.getDiscount());
     }
 }
