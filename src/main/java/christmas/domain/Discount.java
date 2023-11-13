@@ -13,5 +13,9 @@ public interface Discount {
         return new WeekendDiscount((WeekendDiscount.calculateDiscount(visitDate, visitOrder)));
     }
 
+    static SpecialDiscount generateSpecialDiscount(final Date visitDate) {
+        return new SpecialDiscount((SpecialDiscount.calculateDiscount((visitDate))));
+    }
+
     int getDiscount();
 }

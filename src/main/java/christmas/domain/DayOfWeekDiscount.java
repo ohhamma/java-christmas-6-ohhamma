@@ -6,8 +6,21 @@ import java.util.Collections;
 import java.util.List;
 
 public enum DayOfWeekDiscount {
-    WEEKDAY_DISCOUNT(2_023, MenuGroup.DESSERT, Arrays.asList(DayOfWeek.SUNDAY, DayOfWeek.MONDAY, DayOfWeek.TUESDAY, DayOfWeek.WEDNESDAY, DayOfWeek.THURSDAY)),
-    WEEKEND_DISCOUNT(2_023, MenuGroup.MAIN, Arrays.asList(DayOfWeek.FRIDAY, DayOfWeek.SATURDAY)),
+    WEEKDAY_DISCOUNT(
+            2_023,
+            MenuGroup.DESSERT,
+            Arrays.asList(
+                    DayOfWeek.SUNDAY,
+                    DayOfWeek.MONDAY,
+                    DayOfWeek.TUESDAY,
+                    DayOfWeek.WEDNESDAY,
+                    DayOfWeek.THURSDAY)),
+    WEEKEND_DISCOUNT(
+            2_023,
+            MenuGroup.MAIN,
+            Arrays.asList(
+                    DayOfWeek.FRIDAY,
+                    DayOfWeek.SATURDAY)),
     EMPTY(0, MenuGroup.EMPTY, Collections.EMPTY_LIST),
     ;
 

@@ -23,6 +23,10 @@ public class Date {
         }
     }
 
+    public boolean isEqual(LocalDate date) {
+        return this.date.equals(date);
+    }
+
     public boolean isBefore(LocalDate date) {
         return this.date.isBefore(date);
     }
