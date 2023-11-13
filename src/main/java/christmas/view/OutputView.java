@@ -19,10 +19,23 @@ public class OutputView {
 
     public void printOrder(Order order) {
         printNewLine();
-        System.out.println(OutputMessage.ORDER_PREFIX.getMessage() + order);
+        System.out.println(generateLabel(OutputMessage.ORDER_LABEL.getMessage()) + order);
+    }
+
+    public void printTotalOrderPrice(int totalOrderPrice) {
+        printNewLine();
+        System.out.println(generateLabel(OutputMessage.TOTAL_ORDER_PRICE_LABEL.getMessage()) + generateMoney(totalOrderPrice));
     }
 
     private void printNewLine() {
         System.out.println();
+    }
+
+    private String generateLabel(String message) {
+        return String.format(OutputMessage.LABEL.getMessage(), message);
+    }
+
+    private String generateMoney(int money) {
+        return String.format(OutputMessage.MONEY.getMessage(), money);
     }
 }

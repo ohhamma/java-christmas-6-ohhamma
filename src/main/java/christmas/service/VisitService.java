@@ -1,5 +1,7 @@
 package christmas.service;
 
+import christmas.domain.Date;
+import christmas.domain.Order;
 import christmas.domain.Visit;
 
 import java.util.List;
@@ -21,5 +23,17 @@ public class VisitService {
 
     public Visit getVisit() {
         return visit;
+    }
+
+    public Date getDate() {
+        return visit.getDate();
+    }
+
+    public Order getOrder() {
+        return visit.getOrder();
+    }
+
+    public int getTotalOrderPrice() {
+        return visit.getOrder().getTotalOrderPrice();
     }
 }
