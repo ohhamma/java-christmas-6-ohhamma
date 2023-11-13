@@ -67,5 +67,6 @@ public class PlannerController {
 
     private void outputBenefits() {
         outputView.printVisitDate(visitService.getVisit().getDate());
+        outputView.printOrder(visitService.getVisit().getOrder());
     }
 }

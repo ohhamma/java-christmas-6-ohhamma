@@ -2,6 +2,7 @@ package christmas.domain;
 
 import java.util.EnumMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Order {
     private static final int MENU_NUMBER_THRESHOLD = 1;
@@ -67,5 +68,13 @@ public class Order {
         if (totalMenuNumber > TOTAL_MENU_NUMBER_MAX) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_ORDER_TOTAL_MENU_NUMBER.getMessage());
         }
+    }
+
+    @Override
+    public String toString() {
+        return order.keySet()
+                .stream()
+                .map(menu -> menu.getName() + " " + order.get(menu) + "개")
+                .collect(Collectors.joining("\n"));
     }
 }

@@ -33,6 +33,10 @@ public enum Menu {
                 .orElse(INVALID);
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getPrice() {
         return price;
     }
