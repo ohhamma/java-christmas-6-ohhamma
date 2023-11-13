@@ -69,5 +69,6 @@ public class PlannerController {
         outputView.printVisitDate(visitService.getDate());
         outputView.printOrder(visitService.getOrder());
         outputView.printTotalOrderPrice(visitService.getTotalOrderPrice());
+        outputView.printGiveaway(discountService.getGiveaway());
     }
 }

@@ -26,4 +26,9 @@ public class WeekendDiscount implements Discount {
     public int getDiscount() {
         return discount;
     }
+
+    @Override
+    public boolean isApplicable() {
+        return discount != 0;
+    }
 }

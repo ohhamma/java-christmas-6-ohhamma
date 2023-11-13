@@ -1,5 +1,6 @@
 package christmas.service;
 
+import christmas.domain.Discount;
 import christmas.domain.Discounts;
 import christmas.domain.DiscountsGenerator;
 import christmas.domain.Visit;
@@ -13,5 +14,9 @@ public class DiscountService {
 
     public int getTotalDiscountAmount() {
         return discounts.getTotalDiscountAmount();
+    }
+
+    public Discount getGiveaway() {
+        return discounts.getGiveaway();
     }
 }

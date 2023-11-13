@@ -1,6 +1,10 @@
 package christmas.domain;
 
 public interface Discount {
+    static DefaultDiscount generateDefaultDiscount() {
+        return new DefaultDiscount(DefaultDiscount.calculateDiscount());
+    }
+
     static ChristmasDiscount generateChristmasDiscount(final Date visitDate) {
         return new ChristmasDiscount(ChristmasDiscount.calculateDiscount(visitDate));
     }
@@ -22,4 +26,6 @@ public interface Discount {
     }
 
     int getDiscount();
+
+    boolean isApplicable();
 }

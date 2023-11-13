@@ -13,6 +13,13 @@ public class Discounts {
         return new Discounts(discounts);
     }
 
+    public Discount getGiveaway() {
+        return discounts.stream()
+                .filter(discount -> discount instanceof Giveaway)
+                .findFirst()
+                .orElse(Discount.generateDefaultDiscount());
+    }
+
     public int getTotalDiscountAmount() {
         return discounts.stream()
                 .mapToInt(Discount::getDiscount)

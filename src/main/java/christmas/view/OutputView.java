@@ -1,6 +1,7 @@
 package christmas.view;
 
 import christmas.domain.Date;
+import christmas.domain.Discount;
 import christmas.domain.Order;
 
 public class OutputView {
@@ -25,6 +26,15 @@ public class OutputView {
     public void printTotalOrderPrice(int totalOrderPrice) {
         printNewLine();
         System.out.println(generateLabel(OutputMessage.TOTAL_ORDER_PRICE_LABEL.getMessage()) + generateMoney(totalOrderPrice));
+    }
+
+    public void printGiveaway(Discount giveaway) {
+        printNewLine();
+        if (giveaway.isApplicable()) {
+            System.out.println(generateLabel(OutputMessage.GIVEAWAY_LABEL.getMessage()) + giveaway);
+            return;
+        }
+        System.out.println(generateLabel(OutputMessage.GIVEAWAY_LABEL.getMessage()) + OutputMessage.NOT_APPLICABLE.getMessage());
     }
 
     private void printNewLine() {

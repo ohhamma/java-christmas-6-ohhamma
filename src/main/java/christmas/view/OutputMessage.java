@@ -7,6 +7,8 @@ public enum OutputMessage {
     LABEL("<%s>\n"),
     ORDER_LABEL("주문 메뉴"),
     TOTAL_ORDER_PRICE_LABEL("할인 전 총주문 금액"),
+    GIVEAWAY_LABEL("증정 메뉴"),
+    NOT_APPLICABLE("없음"),
     MONEY("%,d원"),
     ;
 
