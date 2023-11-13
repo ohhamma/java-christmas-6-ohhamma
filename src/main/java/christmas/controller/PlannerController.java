@@ -29,6 +29,7 @@ public class PlannerController {
         inputOrder();
         calculateDiscount();
         giveBadge();
+        outputBenefits();
     }
 
     private void introduce() {
@@ -62,5 +63,9 @@ public class PlannerController {
 
     private void giveBadge() {
         badgeService.initBadge(discountService.getTotalDiscountAmount());
+    }
+
+    private void outputBenefits() {
+        outputView.printVisitDate(visitService.getVisit().getDate());
     }
 }
