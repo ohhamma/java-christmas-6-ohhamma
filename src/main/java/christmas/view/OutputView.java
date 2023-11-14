@@ -58,6 +58,11 @@ public class OutputView {
         System.out.println(StringUtil.generateLabel(OutputMessage.PAYMENT_AMOUNT_LABEL.getMessage()) + StringUtil.generateMoney(paymentAmount));
     }
 
+    public void printBadge(String badge) {
+        printNewLine();
+        System.out.println(StringUtil.generateLabel(OutputMessage.BADGE_LABEL.getMessage()) + badge);
+    }
+
     private void printNewLine() {
         System.out.println();
     }

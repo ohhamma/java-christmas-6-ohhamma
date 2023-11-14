@@ -10,6 +10,7 @@ public enum OutputMessage {
     BENEFIT_LABEL("혜택 내역"),
     TOTAL_BENEFIT_AMOUNT_LABEL("총혜택 금액"),
     PAYMENT_AMOUNT_LABEL("할인 후 예상 결제 금액"),
+    BADGE_LABEL("12월 이벤트 배지"),
     NOT_APPLICABLE("없음"),
     ;
 

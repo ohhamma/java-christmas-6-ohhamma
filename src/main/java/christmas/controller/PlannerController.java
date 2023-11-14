@@ -74,6 +74,7 @@ public class PlannerController {
         outputVisit();
         outputBenefit();
         outputMoney();
+        outputBadge();
     }
 
     private void outputVisit() {
@@ -91,5 +92,9 @@ public class PlannerController {
     private void outputMoney() {
         moneyService.initMoney(visitService.getTotalOrderAmount() - benefitService.getTotalDiscountAmount());
         outputView.printPaymentAmount(moneyService.getMoney());
+    }
+
+    private void outputBadge() {
+        outputView.printBadge(badgeService.getBadgeName());
     }
 }
