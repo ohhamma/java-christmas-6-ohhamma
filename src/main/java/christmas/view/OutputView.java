@@ -53,6 +53,11 @@ public class OutputView {
         System.out.println(StringUtil.generateLabel(OutputMessage.TOTAL_BENEFIT_AMOUNT_LABEL.getMessage()) + StringUtil.generateMoney(totalBenefitAmount * -1));
     }
 
+    public void printPaymentAmount(int paymentAmount) {
+        printNewLine();
+        System.out.println(StringUtil.generateLabel(OutputMessage.PAYMENT_AMOUNT_LABEL.getMessage()) + StringUtil.generateMoney(paymentAmount));
+    }
+
     private void printNewLine() {
         System.out.println();
     }

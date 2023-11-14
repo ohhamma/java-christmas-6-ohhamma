@@ -9,6 +9,7 @@ public enum OutputMessage {
     GIVEAWAY_LABEL("증정 메뉴"),
     BENEFIT_LABEL("혜택 내역"),
     TOTAL_BENEFIT_AMOUNT_LABEL("총혜택 금액"),
+    PAYMENT_AMOUNT_LABEL("할인 후 예상 결제 금액"),
     NOT_APPLICABLE("없음"),
     ;
 

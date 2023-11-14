@@ -1,6 +1,5 @@
 package christmas.service;
 
-import christmas.domain.Discounts;
 import christmas.domain.Benefits;
 import christmas.domain.Giveaways;
 import christmas.domain.Visit;
@@ -24,12 +23,12 @@ public class BenefitService {
         return benefits.getTotalBenefitAmount();
     }
 
-    public Giveaways getGiveaways() {
-        return benefits.getGiveaways();
+    public int getTotalDiscountAmount() {
+        return benefits.getDiscounts().getTotalDiscountAmount();
     }
 
-    public Discounts getDiscounts() {
-        return benefits.getDiscounts();
+    public Giveaways getGiveaways() {
+        return benefits.getGiveaways();
     }
 
     public Benefits getBenefits() {

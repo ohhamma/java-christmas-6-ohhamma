@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.service.MoneyService;
 import christmas.service.BadgeService;
 import christmas.service.BenefitService;
 import christmas.service.VisitService;
@@ -14,6 +15,7 @@ public class PlannerController {
     private final VisitService visitService;
     private final BenefitService benefitService;
     private final BadgeService badgeService;
+    private final MoneyService moneyService;
 
     public PlannerController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -21,6 +23,7 @@ public class PlannerController {
         this.visitService = new VisitService();
         this.benefitService = new BenefitService();
         this.badgeService = new BadgeService();
+        this.moneyService = new MoneyService();
     }
 
     public void run() {
@@ -68,11 +71,25 @@ public class PlannerController {
     }
 
     private void outputResults() {
+        outputVisit();
+        outputBenefit();
+        outputMoney();
+    }
+
+    private void outputVisit() {
         outputView.printDate(visitService.getDate());
         outputView.printOrder(visitService.getOrder());
         outputView.printTotalOrderAmount(visitService.getTotalOrderAmount());
+    }
+
+    private void outputBenefit() {
         outputView.printGiveaways(benefitService.getGiveaways());
         outputView.printBenefits(benefitService.getBenefits());
         outputView.printTotalBenefitAmount(benefitService.getTotalBenefitAmount());
+    }
+
+    private void outputMoney() {
+        moneyService.initMoney(visitService.getTotalOrderAmount() - benefitService.getTotalDiscountAmount());
+        outputView.printPaymentAmount(moneyService.getMoney());
     }
 }
