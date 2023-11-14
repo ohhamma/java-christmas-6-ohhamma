@@ -1,5 +1,7 @@
 package christmas.domain;
 
+import christmas.util.StringUtil;
+
 import java.time.LocalDate;
 
 public class ChristmasDiscount implements Discount {
@@ -7,13 +9,14 @@ public class ChristmasDiscount implements Discount {
     private static final LocalDate DATE_MAX = LocalDate.of(2023, 12, 25);
     private static final int DISCOUNT_START = 1_000;
     private static final int DISCOUNT_AMOUNT = 100;
-    private final int discount;
+    private static final String DISCOUNT_NAME = "크리스마스 디데이 할인";
+    private final int amount;
 
-    public ChristmasDiscount(final int discount) {
-        this.discount = discount;
+    public ChristmasDiscount(final int amount) {
+        this.amount = amount;
     }
 
-    public static int calculateDiscount(Date visitDate) {
+    public static int calculateAmount(Date visitDate) {
         if (visitDate.isBefore(DATE_MIN) || visitDate.isAfter(DATE_MAX)) {
             return 0;
         }
@@ -21,12 +24,22 @@ public class ChristmasDiscount implements Discount {
     }
 
     @Override
-    public int getDiscount() {
-        return discount;
+    public int getAmount() {
+        return amount;
+    }
+
+    @Override
+    public String getName() {
+        return DISCOUNT_NAME;
     }
 
     @Override
     public boolean isApplicable() {
-        return discount != 0;
+        return amount != 0;
+    }
+
+    @Override
+    public String toString() {
+        return DISCOUNT_NAME + ": " + StringUtil.generateMoney(amount * -1);
     }
 }

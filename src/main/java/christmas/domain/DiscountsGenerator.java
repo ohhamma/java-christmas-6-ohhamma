@@ -13,7 +13,6 @@ public class DiscountsGenerator {
         discounts.add(Discount.generateWeekdayDiscount(visit.getDate(), visit.getOrder()));
         discounts.add(Discount.generateWeekendDiscount(visit.getDate(), visit.getOrder()));
         discounts.add(Discount.generateSpecialDiscount(visit.getDate()));
-        discounts.add(Discount.generateGiveaway(visit.getDate(), visit.getOrder()));
         return Discounts.valueOf(discounts);
     }
 }

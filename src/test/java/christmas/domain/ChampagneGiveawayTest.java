@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class GiveawayTest {
+class ChampagneGiveawayTest {
     @DisplayName("할인 전 총주문 금액이 120,000원보다 작으면 할인금액이 0원")
     @ValueSource(strings = {"티본스테이크-1"})
     @ParameterizedTest
@@ -18,9 +18,9 @@ class GiveawayTest {
         List<String> menuOrders = new ArrayList<>();
         menuOrders.add(menuOrder);
 
-        Giveaway giveaway = Discount.generateGiveaway(Date.from(25), OrderGenerator.generate(menuOrders));
+        ChampagneGiveaway champagneGiveaway = Giveaway.generateChampangeGiveaway(Date.from(25), OrderGenerator.generate(menuOrders));
 
-        assertEquals(0, giveaway.getDiscount());
+        assertEquals(0, champagneGiveaway.getAmount());
     }
 
     @DisplayName("할인 전 총주문 금액이 120,000원보다 크면 샴페인 증정 (할인 금액 25,000원)")
@@ -32,8 +32,8 @@ class GiveawayTest {
         menuOrders.add("아이스크림-1");
         menuOrders.add("레드와인-1");
 
-        Giveaway giveaway = Discount.generateGiveaway(Date.from(25), OrderGenerator.generate(menuOrders));
+        ChampagneGiveaway champagneGiveaway = Giveaway.generateChampangeGiveaway(Date.from(25), OrderGenerator.generate(menuOrders));
 
-        assertEquals(25_000, giveaway.getDiscount());
+        assertEquals(25_000, champagneGiveaway.getAmount());
     }
 }

@@ -11,7 +11,7 @@ class ChristmasDiscountTest {
     void dateOutOfRange() {
         ChristmasDiscount christmasDiscount = Discount.generateChristmasDiscount(Date.from(26));
 
-        assertEquals(0, christmasDiscount.getDiscount());
+        assertEquals(0, christmasDiscount.getAmount());
     }
 
     @DisplayName("방문 날짜가 2023.12.1이면 할인금액이 1,000원")
@@ -19,7 +19,7 @@ class ChristmasDiscountTest {
     void dateIsStartDate() {
         ChristmasDiscount christmasDiscount = Discount.generateChristmasDiscount(Date.from(1));
 
-        assertEquals(1_000, christmasDiscount.getDiscount());
+        assertEquals(1_000, christmasDiscount.getAmount());
     }
 
     @DisplayName("방문 날짜가 2023.12.25이면 할인금액이 3,400원")
@@ -27,6 +27,6 @@ class ChristmasDiscountTest {
     void dateIsEndDate() {
         ChristmasDiscount christmasDiscount = Discount.generateChristmasDiscount(Date.from(25));
 
-        assertEquals(3_400, christmasDiscount.getDiscount());
+        assertEquals(3_400, christmasDiscount.getAmount());
     }
 }

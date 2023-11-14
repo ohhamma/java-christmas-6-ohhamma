@@ -1,8 +1,10 @@
 package christmas.view;
 
 import christmas.domain.Date;
-import christmas.domain.Discount;
+import christmas.domain.Events;
+import christmas.domain.Giveaways;
 import christmas.domain.Order;
+import christmas.util.StringUtil;
 
 public class OutputView {
     public void printException(String exception) {
@@ -15,37 +17,38 @@ public class OutputView {
 
     public void printVisitDate(Date visitDate) {
         printNewLine();
-        System.out.println(String.format(OutputMessage.VISIT_DATE.getMessage(), visitDate.getMonth(), visitDate.getDayOfMonth()));
+        System.out.println(StringUtil.generateDate(visitDate) + OutputMessage.INFORM_VISIT.getMessage());
     }
 
     public void printOrder(Order order) {
         printNewLine();
-        System.out.println(generateLabel(OutputMessage.ORDER_LABEL.getMessage()) + order);
+        System.out.println(StringUtil.generateLabel(OutputMessage.ORDER_LABEL.getMessage()) + order);
     }
 
     public void printTotalOrderPrice(int totalOrderPrice) {
         printNewLine();
-        System.out.println(generateLabel(OutputMessage.TOTAL_ORDER_PRICE_LABEL.getMessage()) + generateMoney(totalOrderPrice));
+        System.out.println(StringUtil.generateLabel(OutputMessage.TOTAL_ORDER_PRICE_LABEL.getMessage()) + StringUtil.generateMoney(totalOrderPrice));
     }
 
-    public void printGiveaway(Discount giveaway) {
+    public void printGiveaway(Giveaways giveaways) {
         printNewLine();
-        if (giveaway.isApplicable()) {
-            System.out.println(generateLabel(OutputMessage.GIVEAWAY_LABEL.getMessage()) + giveaway);
+        if (giveaways.hasApplicable()) {
+            System.out.println(StringUtil.generateLabel(OutputMessage.GIVEAWAY_LABEL.getMessage()) + giveaways);
             return;
         }
-        System.out.println(generateLabel(OutputMessage.GIVEAWAY_LABEL.getMessage()) + OutputMessage.NOT_APPLICABLE.getMessage());
+        System.out.println(StringUtil.generateLabel(OutputMessage.GIVEAWAY_LABEL.getMessage()) + OutputMessage.NOT_APPLICABLE.getMessage());
+    }
+
+    public void printAppliedEvents(Events events) {
+        printNewLine();
+        if (events.hasApplicable()) {
+            System.out.println(StringUtil.generateLabel(OutputMessage.DISCOUNT_LABEL.getMessage()) + events);
+            return;
+        }
+        System.out.println(StringUtil.generateLabel(OutputMessage.DISCOUNT_LABEL.getMessage()) + OutputMessage.NOT_APPLICABLE.getMessage());
     }
 
     private void printNewLine() {
         System.out.println();
-    }
-
-    private String generateLabel(String message) {
-        return String.format(OutputMessage.LABEL.getMessage(), message);
-    }
-
-    private String generateMoney(int money) {
-        return String.format(OutputMessage.MONEY.getMessage(), money);
     }
 }

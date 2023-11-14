@@ -1,6 +1,7 @@
 package christmas.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Discounts {
     private final List<Discount> discounts;
@@ -13,16 +14,22 @@ public class Discounts {
         return new Discounts(discounts);
     }
 
-    public Discount getGiveaway() {
-        return discounts.stream()
-                .filter(discount -> discount instanceof Giveaway)
-                .findFirst()
-                .orElse(Discount.generateDefaultDiscount());
-    }
-
     public int getTotalDiscountAmount() {
         return discounts.stream()
-                .mapToInt(Discount::getDiscount)
+                .mapToInt(Discount::getAmount)
                 .sum();
+    }
+
+    public boolean hasApplicable() {
+        return discounts.stream()
+                .anyMatch(Discount::isApplicable);
+    }
+
+    @Override
+    public String toString() {
+        return discounts.stream()
+                .filter(Discount::isApplicable)
+                .map(Discount::toString)
+                .collect(Collectors.joining("\n"));
     }
 }

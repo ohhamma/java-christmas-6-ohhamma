@@ -19,7 +19,7 @@ class WeekdayDiscountTest {
 
         WeekdayDiscount weekdayDiscount = Discount.generateWeekdayDiscount(Date.from(date), OrderGenerator.generate(menuOrders));
 
-        assertEquals(0, weekdayDiscount.getDiscount());
+        assertEquals(0, weekdayDiscount.getAmount());
     }
 
     @DisplayName("디저트 메뉴가 0개면 할인금액이 0원")
@@ -31,7 +31,7 @@ class WeekdayDiscountTest {
 
         WeekdayDiscount weekdayDiscount = Discount.generateWeekdayDiscount(Date.from(3), OrderGenerator.generate(menuOrders));
 
-        assertEquals(0, weekdayDiscount.getDiscount());
+        assertEquals(0, weekdayDiscount.getAmount());
     }
 
     @DisplayName("디저트 메뉴가 1개면 할인금액이 2,023원")
@@ -43,7 +43,7 @@ class WeekdayDiscountTest {
 
         WeekdayDiscount weekdayDiscount = Discount.generateWeekdayDiscount(Date.from(3), OrderGenerator.generate(menuOrders));
 
-        assertEquals(2_023, weekdayDiscount.getDiscount());
+        assertEquals(2_023, weekdayDiscount.getAmount());
     }
 
     @DisplayName("디저트 메뉴가 2개면 할인금액이 4,046원")
@@ -55,6 +55,6 @@ class WeekdayDiscountTest {
 
         WeekdayDiscount weekdayDiscount = Discount.generateWeekdayDiscount(Date.from(3), OrderGenerator.generate(menuOrders));
 
-        assertEquals(4_046, weekdayDiscount.getDiscount());
+        assertEquals(4_046, weekdayDiscount.getAmount());
     }
 }
