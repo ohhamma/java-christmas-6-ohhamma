@@ -13,8 +13,8 @@ public class VisitService {
         this.visit = new Visit();
     }
 
-    public void initVisitDate(int date) {
-        visit.initVisitDate(date);
+    public void initDate(int date) {
+        visit.initDate(date);
     }
 
     public void initOrder(List<String> menuOrders) {
