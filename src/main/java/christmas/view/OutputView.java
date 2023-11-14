@@ -1,7 +1,7 @@
 package christmas.view;
 
 import christmas.domain.Date;
-import christmas.domain.Events;
+import christmas.domain.Benefits;
 import christmas.domain.Giveaways;
 import christmas.domain.Order;
 import christmas.util.StringUtil;
@@ -15,7 +15,7 @@ public class OutputView {
         System.out.println(OutputMessage.INTRODUCE.getMessage());
     }
 
-    public void printVisitDate(Date visitDate) {
+    public void printDate(Date visitDate) {
         printNewLine();
         System.out.println(StringUtil.generateDate(visitDate) + OutputMessage.INFORM_VISIT.getMessage());
     }
@@ -25,12 +25,12 @@ public class OutputView {
         System.out.println(StringUtil.generateLabel(OutputMessage.ORDER_LABEL.getMessage()) + order);
     }
 
-    public void printTotalOrderPrice(int totalOrderPrice) {
+    public void printTotalOrderAmount(int totalOrderAmount) {
         printNewLine();
-        System.out.println(StringUtil.generateLabel(OutputMessage.TOTAL_ORDER_PRICE_LABEL.getMessage()) + StringUtil.generateMoney(totalOrderPrice));
+        System.out.println(StringUtil.generateLabel(OutputMessage.TOTAL_ORDER_AMOUNT_LABEL.getMessage()) + StringUtil.generateMoney(totalOrderAmount));
     }
 
-    public void printGiveaway(Giveaways giveaways) {
+    public void printGiveaways(Giveaways giveaways) {
         printNewLine();
         if (giveaways.hasApplicable()) {
             System.out.println(StringUtil.generateLabel(OutputMessage.GIVEAWAY_LABEL.getMessage()) + giveaways);
@@ -39,13 +39,18 @@ public class OutputView {
         System.out.println(StringUtil.generateLabel(OutputMessage.GIVEAWAY_LABEL.getMessage()) + OutputMessage.NOT_APPLICABLE.getMessage());
     }
 
-    public void printAppliedEvents(Events events) {
+    public void printBenefits(Benefits benefits) {
         printNewLine();
-        if (events.hasApplicable()) {
-            System.out.println(StringUtil.generateLabel(OutputMessage.DISCOUNT_LABEL.getMessage()) + events);
+        if (benefits.hasApplicable()) {
+            System.out.println(StringUtil.generateLabel(OutputMessage.BENEFIT_LABEL.getMessage()) + benefits);
             return;
         }
-        System.out.println(StringUtil.generateLabel(OutputMessage.DISCOUNT_LABEL.getMessage()) + OutputMessage.NOT_APPLICABLE.getMessage());
+        System.out.println(StringUtil.generateLabel(OutputMessage.BENEFIT_LABEL.getMessage()) + OutputMessage.NOT_APPLICABLE.getMessage());
+    }
+
+    public void printTotalBenefitAmount(int totalBenefitAmount) {
+        printNewLine();
+        System.out.println(StringUtil.generateLabel(OutputMessage.TOTAL_BENEFIT_AMOUNT_LABEL.getMessage()) + StringUtil.generateMoney(totalBenefitAmount * -1));
     }
 
     private void printNewLine() {

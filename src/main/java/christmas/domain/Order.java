@@ -29,7 +29,7 @@ public class Order {
                 .sum();
     }
 
-    public int getTotalOrderPrice() {
+    public int getTotalOrderAmount() {
         return order.keySet()
                 .stream()
                 .mapToInt(menu -> order.get(menu) * menu.getPrice())

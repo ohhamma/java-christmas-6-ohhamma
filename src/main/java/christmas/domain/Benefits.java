@@ -2,7 +2,7 @@ package christmas.domain;
 
 import christmas.util.StringUtil;
 
-public class Events {
+public class Benefits {
     Discounts discounts;
     Giveaways giveaways;
 
@@ -14,7 +14,7 @@ public class Events {
         this.giveaways = GiveawaysGenerator.generate(visit);
     }
 
-    public int getTotalEventAmount() {
+    public int getTotalBenefitAmount() {
         return discounts.getTotalDiscountAmount() + giveaways.getTotalGiveawayAmount();
     }
 

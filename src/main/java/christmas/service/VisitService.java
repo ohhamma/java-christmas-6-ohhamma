@@ -33,7 +33,7 @@ public class VisitService {
         return visit.getOrder();
     }
 
-    public int getTotalOrderPrice() {
-        return visit.getOrder().getTotalOrderPrice();
+    public int getTotalOrderAmount() {
+        return visit.getOrder().getTotalOrderAmount();
     }
 }
