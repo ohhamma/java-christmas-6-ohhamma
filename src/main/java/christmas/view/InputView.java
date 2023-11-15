@@ -11,7 +11,7 @@ public class InputView {
     public int readDate() {
         System.out.println(InputMessage.REQUEST_DATE.getMessage());
         String input = Console.readLine();
-        return ConvertUtil.convertToDate(input);
+        return ConvertUtil.convertToDay(input);
     }
 
     public List<String> readOrder() {

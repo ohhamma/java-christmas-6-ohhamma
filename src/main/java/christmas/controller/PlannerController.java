@@ -42,8 +42,8 @@ public class PlannerController {
     private void inputDate() {
         visitService.initVisit();
         try {
-            int date = inputView.readDate();
-            visitService.initDate(date);
+            int day = inputView.readDate();
+            visitService.initDate(day);
         } catch (IllegalArgumentException e) {
             outputView.printException(e.getMessage());
             inputDate();

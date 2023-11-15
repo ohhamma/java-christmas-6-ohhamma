@@ -6,7 +6,7 @@ public class ConvertUtil {
     private ConvertUtil() {
     }
 
-    public static int convertToDate(String input) {
+    public static int convertToDay(String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {

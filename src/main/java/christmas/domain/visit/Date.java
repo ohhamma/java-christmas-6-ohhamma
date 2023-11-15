@@ -19,9 +19,9 @@ public class Date {
         this.date = date;
     }
 
-    public static Date from(final int date) {
+    public static Date from(final int day) {
         try {
-            return new Date(LocalDate.of(YEAR, MONTH, date));
+            return new Date(LocalDate.of(YEAR, MONTH, day));
         } catch (DateTimeException e) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_DATE.getMessage());
         }

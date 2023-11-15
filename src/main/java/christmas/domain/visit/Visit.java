@@ -18,8 +18,8 @@ public class Visit {
         return new Visit(date, order);
     }
 
-    public void initDate(int date) {
-        this.date = Date.from(date);
+    public void initDate(int day) {
+        this.date = Date.from(day);
     }
 
     public void initOrder(List<String> menuOrders) {
