@@ -15,7 +15,7 @@ class WeekdayDiscountTest {
     @DisplayName("방문 날짜가 평일이 아니면 할인금액이 0원")
     @ValueSource(ints = {1, 2, 8, 9, 15, 16, 22, 23, 29, 30})
     @ParameterizedTest
-    void dateNotWeekday(int date) {
+    void dateNotWeekday(final int date) {
         // given
         List<String> menuOrders = new ArrayList<>();
         menuOrders.add("초코케이크-1");
@@ -30,7 +30,7 @@ class WeekdayDiscountTest {
     @DisplayName("디저트 메뉴가 0개면 할인금액이 0원")
     @ValueSource(strings = {"해산물파스타-2", "시저샐러드-1", "양송이수프-3"})
     @ParameterizedTest
-    void dessertMenuNone(String menuOrder) {
+    void dessertMenuNone(final String menuOrder) {
         // given
         List<String> menuOrders = new ArrayList<>();
         menuOrders.add(menuOrder);
@@ -45,7 +45,7 @@ class WeekdayDiscountTest {
     @DisplayName("디저트 메뉴가 1개면 할인금액이 2,023원")
     @ValueSource(strings = {"초코케이크-1", "아이스크림-1"})
     @ParameterizedTest
-    void dessertMenuOne(String menuOrder) {
+    void dessertMenuOne(final String menuOrder) {
         // given
         List<String> menuOrders = new ArrayList<>();
         menuOrders.add(menuOrder);
@@ -60,7 +60,7 @@ class WeekdayDiscountTest {
     @DisplayName("디저트 메뉴가 2개면 할인금액이 4,046원")
     @ValueSource(strings = {"초코케이크-2", "아이스크림-2"})
     @ParameterizedTest
-    void dessertMenuTwo(String menuOrder) {
+    void dessertMenuTwo(final String menuOrder) {
         // given
         List<String> menuOrders = new ArrayList<>();
         menuOrders.add(menuOrder);

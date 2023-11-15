@@ -21,12 +21,12 @@ public enum Menu {
     private final String name;
     private final int price;
 
-    Menu(String name, int price) {
+    Menu(final String name, final int price) {
         this.name = name;
         this.price = price;
     }
 
-    public static Menu getMenuByName(String name) {
+    public static Menu getMenuByName(final String name) {
         return Arrays.stream(Menu.values())
                 .filter(menu -> menu.name.equals(name))
                 .findAny()

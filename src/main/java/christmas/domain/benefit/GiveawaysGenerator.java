@@ -11,7 +11,7 @@ public class GiveawaysGenerator {
     private GiveawaysGenerator() {
     }
 
-    public static Giveaways generate(Visit visit) {
+    public static Giveaways generate(final Visit visit) {
         List<Giveaway> giveaways = new ArrayList<>();
         if (visit.getOrder().getTotalOrderAmount() < GIVEAWAY_THRESHOLD) {
             return Giveaways.valueOf(giveaways);

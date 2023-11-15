@@ -11,7 +11,7 @@ class DayOfWeekDiscountTest {
     @DisplayName("평일 주문에 해당하는 날짜가 입력된 경우에 DayOfWeekDiscount.WEEKDAY_DISCOUNT 반환")
     @ValueSource(ints = {3, 4, 5, 6, 7})
     @ParameterizedTest
-    void dateInWeekdayDiscount(int day) {
+    void dateInWeekdayDiscount(final int day) {
         // given
         Date date = Date.from(day);
 
@@ -25,7 +25,7 @@ class DayOfWeekDiscountTest {
     @DisplayName("주말 주문에 해당하는 날짜가 입력된 경우에 DayOfWeekDiscount.WEEKEND_DISCOUNT 반환")
     @ValueSource(ints = {8, 9})
     @ParameterizedTest
-    void dateInWeekendDiscount(int day) {
+    void dateInWeekendDiscount(final int day) {
         // given
         Date date = Date.from(day);
 

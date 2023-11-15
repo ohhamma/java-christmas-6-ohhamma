@@ -11,7 +11,7 @@ public class SplitUtil {
     private SplitUtil() {
     }
 
-    public static List<String> splitOrder(String input) {
+    public static List<String> splitOrder(final String input) {
         try {
             return List.of(input.split(ORDER_SPLITERATOR, -1));
         } catch (NullPointerException e) {
@@ -19,7 +19,7 @@ public class SplitUtil {
         }
     }
 
-    public static List<List<String>> splitMenuOrders(List<String> menuOrders) {
+    public static List<List<String>> splitMenuOrders(final List<String> menuOrders) {
         try {
             return menuOrders.stream()
                     .map(menuOrder -> List.of(menuOrder.split(MENU_DELIMITER, -1)))

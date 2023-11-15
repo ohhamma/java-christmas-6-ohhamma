@@ -33,20 +33,20 @@ public enum DayOfWeekDiscount {
     private final MenuGroup menuGroup;
     private final List<DayOfWeek> daysOfWeek;
 
-    DayOfWeekDiscount(int amount, MenuGroup menuGroup, List<DayOfWeek> daysOfWeek) {
+    DayOfWeekDiscount(final int amount, final MenuGroup menuGroup, final List<DayOfWeek> daysOfWeek) {
         this.amount = amount;
         this.menuGroup = menuGroup;
         this.daysOfWeek = daysOfWeek;
     }
 
-    public static DayOfWeekDiscount getDayOfWeekDiscountByDate(Date date) {
+    public static DayOfWeekDiscount getDayOfWeekDiscountByDate(final Date date) {
         return Arrays.stream(DayOfWeekDiscount.values())
                 .filter(daysOfWeek -> daysOfWeek.hasDate(date))
                 .findAny()
                 .orElse(EMPTY);
     }
 
-    private boolean hasDate(Date date) {
+    private boolean hasDate(final Date date) {
         return daysOfWeek.stream()
                 .anyMatch(days -> days == date.getDayOfWeek());
     }

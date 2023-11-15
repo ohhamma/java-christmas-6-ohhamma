@@ -26,7 +26,7 @@ public class Order {
         return new Order(order);
     }
 
-    public int countMenuByMenuGroup(MenuGroup menuGroup) {
+    public int countMenuByMenuGroup(final MenuGroup menuGroup) {
         return order.keySet()
                 .stream()
                 .filter(menuGroup::hasMenu)
@@ -41,13 +41,13 @@ public class Order {
                 .sum();
     }
 
-    private void validateMenuName(EnumMap<Menu, Integer> order) {
+    private void validateMenuName(final EnumMap<Menu, Integer> order) {
         if (order.getOrDefault(Menu.INVALID, 0) > 0) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_ORDER.getMessage());
         }
     }
 
-    private void validateMenuNumber(EnumMap<Menu, Integer> order) {
+    private void validateMenuNumber(final EnumMap<Menu, Integer> order) {
         List<Integer> menuNumbers = order.values()
                 .stream()
                 .filter(number -> number < MENU_NUMBER_THRESHOLD)
@@ -57,7 +57,7 @@ public class Order {
         }
     }
 
-    private void validateBeverage(EnumMap<Menu, Integer> order) {
+    private void validateBeverage(final EnumMap<Menu, Integer> order) {
         boolean isAllBeverage = order.keySet()
                 .stream()
                 .allMatch(menu -> MenuGroup.getMenuGroupByMenu(menu) == MenuGroup.BEVERAGE);
@@ -66,7 +66,7 @@ public class Order {
         }
     }
 
-    private void validateTotalMenuNumber(EnumMap<Menu, Integer> order) {
+    private void validateTotalMenuNumber(final EnumMap<Menu, Integer> order) {
         int totalMenuNumber = order.values()
                 .stream()
                 .reduce(0, Integer::sum);

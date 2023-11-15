@@ -9,20 +9,20 @@ public class Visit {
     public Visit() {
     }
 
-    private Visit(Date date, Order order) {
+    private Visit(final Date date, final Order order) {
         this.date = date;
         this.order = order;
     }
 
-    public static Visit of(Date date, Order order) {
+    public static Visit of(final Date date, final Order order) {
         return new Visit(date, order);
     }
 
-    public void initDate(int day) {
+    public void initDate(final int day) {
         this.date = Date.from(day);
     }
 
-    public void initOrder(List<String> menuOrders) {
+    public void initOrder(final List<String> menuOrders) {
         this.order = OrderGenerator.generate(menuOrders);
     }
 

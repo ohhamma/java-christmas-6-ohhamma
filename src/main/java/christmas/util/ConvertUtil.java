@@ -6,7 +6,7 @@ public class ConvertUtil {
     private ConvertUtil() {
     }
 
-    public static int convertToDay(String input) {
+    public static int convertToDay(final String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
@@ -14,7 +14,7 @@ public class ConvertUtil {
         }
     }
 
-    public static int convertToMenuNumber(String input) {
+    public static int convertToMenuNumber(final String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {

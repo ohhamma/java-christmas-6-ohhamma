@@ -11,7 +11,7 @@ public record SpecialDiscount(int amount) implements Discount {
     private static final DateDiscount DISCOUNT_TYPE = DateDiscount.SPECIAL_DISCOUNT;
     private static final String DISCOUNT_NAME = "특별 할인";
 
-    public static int calculateAmount(Date visitDate) {
+    public static int calculateAmount(final Date visitDate) {
         if (visitDate.isBefore(DATE_MIN) || visitDate.isAfter(DATE_MAX)) {
             return 0;
         }

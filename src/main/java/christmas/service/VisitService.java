@@ -13,11 +13,11 @@ public class VisitService {
         this.visit = new Visit();
     }
 
-    public void initDate(int day) {
+    public void initDate(final int day) {
         visit.initDate(day);
     }
 
-    public void initOrder(List<String> menuOrders) {
+    public void initOrder(final List<String> menuOrders) {
         visit.initOrder(menuOrders);
     }
 

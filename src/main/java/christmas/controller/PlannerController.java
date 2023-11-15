@@ -17,7 +17,7 @@ public class PlannerController {
     private final BadgeService badgeService;
     private final MoneyService moneyService;
 
-    public PlannerController(InputView inputView, OutputView outputView) {
+    public PlannerController(final InputView inputView, final OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.visitService = new VisitService();

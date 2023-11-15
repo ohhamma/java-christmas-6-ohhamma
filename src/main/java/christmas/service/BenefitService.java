@@ -11,11 +11,11 @@ public class BenefitService {
         this.benefits = new Benefits();
     }
 
-    public void initDiscounts(Visit visit) {
+    public void initDiscounts(final Visit visit) {
         this.benefits.initDiscounts(visit);
     }
 
-    public void initGiveaways(Visit visit) {
+    public void initGiveaways(final Visit visit) {
         this.benefits.initGiveaways(visit);
     }
 

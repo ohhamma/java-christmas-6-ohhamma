@@ -11,19 +11,19 @@ public class StringUtil {
     private StringUtil() {
     }
 
-    public static String generateLabel(String message) {
+    public static String generateLabel(final String message) {
         return String.format(LABEL, message);
     }
 
-    public static String generateDate(Date date) {
+    public static String generateDate(final Date date) {
         return String.format(DATE, date.getMonth(), date.getDayOfMonth());
     }
 
-    public static String generateMoney(int money) {
+    public static String generateMoney(final int money) {
         return String.format(MONEY, money);
     }
 
-    public static String generateNumber(int number) {
+    public static String generateNumber(final int number) {
         return String.format(NUMBER, number);
     }
 }

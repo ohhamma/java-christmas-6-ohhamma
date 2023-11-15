@@ -17,7 +17,7 @@ class SplitUtilTest {
     @DisplayName("주문 입력값이 null인 경우에 대한 예외 처리")
     @ParameterizedTest
     @NullSource
-    void orderIsNull(String input) {
+    void orderIsNull(final String input) {
         // given, when, then
         assertThatThrownBy(() -> SplitUtil.splitOrder(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -27,7 +27,7 @@ class SplitUtilTest {
     @DisplayName("올바른 주문 입력값에 대한 확인")
     @ValueSource(strings = {"티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1"})
     @ParameterizedTest
-    void orderValid(String input) {
+    void orderValid(final String input) {
         // given
         List<String> menuOrders = new ArrayList<>();
         menuOrders.add("티본스테이크-1");
@@ -42,7 +42,7 @@ class SplitUtilTest {
     @DisplayName("메뉴 입력값이 null인 경우에 대한 예외 처리")
     @ParameterizedTest
     @NullSource
-    void menuOrdersIsNull(String input) {
+    void menuOrdersIsNull(final String input) {
         // given
         List<String> menuOrders = new ArrayList<>();
         menuOrders.add(input);

@@ -11,7 +11,7 @@ class SpecialDiscountTest {
     @DisplayName("방문 날짜가 지정된 날짜가 아니면 할인금액이 0원")
     @ValueSource(ints = {1, 2, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 26, 27, 28, 29, 30})
     @ParameterizedTest
-    void dateNotSpecial(int date) {
+    void dateNotSpecial(final int date) {
         // given, when
         SpecialDiscount specialDiscount = Discount.generateSpecialDiscount(Date.from(date));
 
@@ -22,7 +22,7 @@ class SpecialDiscountTest {
     @DisplayName("방문 날짜가 지정된 날짜면 할인금액이 1,000원")
     @ValueSource(ints = {3, 10, 17, 24, 25, 31})
     @ParameterizedTest
-    void dateSpecial(int date) {
+    void dateSpecial(final int date) {
         // given, when
         SpecialDiscount specialDiscount = Discount.generateSpecialDiscount(Date.from(date));
 

@@ -12,7 +12,7 @@ public record ChristmasDiscount(int amount) implements Discount {
     private static final int DISCOUNT_AMOUNT = 100;
     private static final String DISCOUNT_NAME = "크리스마스 디데이 할인";
 
-    public static int calculateAmount(Date visitDate) {
+    public static int calculateAmount(final Date visitDate) {
         if (visitDate.isBefore(DATE_MIN) || visitDate.isAfter(DATE_MAX)) {
             return 0;
         }

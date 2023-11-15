@@ -11,7 +11,7 @@ class MenuTest {
     @DisplayName("메뉴판에 없는 메뉴가 입력된 경우에 Menu.INVALID 반환")
     @ValueSource(strings = {"연어샐러드", "봉골레파스타", "고구마파스타", "화이트와인"})
     @ParameterizedTest
-    void menuNameInvalid(String menuName) {
+    void menuNameInvalid(final String menuName) {
         // given, when
         Menu menu = Menu.getMenuByName(menuName);
 

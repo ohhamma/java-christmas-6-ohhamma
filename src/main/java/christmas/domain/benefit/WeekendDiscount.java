@@ -12,7 +12,7 @@ public record WeekendDiscount(int amount) implements Discount {
     private static final DayOfWeekDiscount DISCOUNT_TYPE = DayOfWeekDiscount.WEEKEND_DISCOUNT;
     private static final String DISCOUNT_NAME = "주말 할인";
 
-    public static int calculateAmount(Date visitDate, final Order visitOrder) {
+    public static int calculateAmount(final Date visitDate, final Order visitOrder) {
         if (visitDate.isBefore(DATE_MIN) || visitDate.isAfter(DATE_MAX)) {
             return 0;
         }

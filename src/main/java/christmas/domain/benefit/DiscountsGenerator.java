@@ -11,7 +11,7 @@ public class DiscountsGenerator {
     private DiscountsGenerator() {
     }
 
-    public static Discounts generate(Visit visit) {
+    public static Discounts generate(final Visit visit) {
         List<Discount> discounts = new ArrayList<>();
         if (visit.getOrder().getTotalOrderAmount() < DISCOUNT_THRESHOLD) {
             return Discounts.valueOf(discounts);

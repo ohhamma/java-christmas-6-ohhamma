@@ -15,7 +15,7 @@ public class OrderTest {
     @DisplayName("메뉴판에 없는 메뉴가 입력된 경우에 대한 예외 처리")
     @ValueSource(strings = {"연어샐러드", "봉골레파스타", "고구마파스타", "화이트와인"})
     @ParameterizedTest
-    void menuNameInvalid(String menuName) {
+    void menuNameInvalid(final String menuName) {
         // given
         EnumMap<Menu, Integer> order = new EnumMap<>(Menu.class);
         order.put(Menu.getMenuByName(menuName), 1);
@@ -29,7 +29,7 @@ public class OrderTest {
     @DisplayName("메뉴 개수가 1보다 작은 경우에 대한 예외 처리")
     @ValueSource(ints = {0, -1, -100})
     @ParameterizedTest
-    void menuNumberInvalid(int menuNumber) {
+    void menuNumberInvalid(final int menuNumber) {
         // given
         EnumMap<Menu, Integer> order = new EnumMap<>(Menu.class);
         order.put(Menu.CHRISTMAS_PASTA, menuNumber);
@@ -43,7 +43,7 @@ public class OrderTest {
     @DisplayName("음료만 주문한 경우에 대한 예외 처리")
     @ValueSource(strings = {"제로콜라", "레드와인", "샴페인"})
     @ParameterizedTest
-    void onlyBeverages(String menuName) {
+    void onlyBeverages(final String menuName) {
         // given
         EnumMap<Menu, Integer> order = new EnumMap<>(Menu.class);
         order.put(Menu.getMenuByName(menuName), 1);

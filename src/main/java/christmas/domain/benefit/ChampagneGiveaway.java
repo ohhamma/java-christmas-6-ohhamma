@@ -14,7 +14,7 @@ public record ChampagneGiveaway(int amount) implements Giveaway {
     private static final int GIVEAWAY_NUMBER = 1;
     private static final int GIVEAWAY_THRESHOLD = 120_000;
 
-    public static int calculateAmount(Date visitDate, Order visitOrder) {
+    public static int calculateAmount(final Date visitDate, final Order visitOrder) {
         if (visitDate.isBefore(DATE_MIN) || visitDate.isAfter(DATE_MAX)) {
             return 0;
         }

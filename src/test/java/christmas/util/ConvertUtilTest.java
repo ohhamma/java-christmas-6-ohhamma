@@ -13,7 +13,7 @@ class ConvertUtilTest {
     @DisplayName("날짜 입력값이 null인 경우에 대한 예외 처리")
     @ParameterizedTest
     @NullSource
-    void dayIsNull(String input) {
+    void dayIsNull(final String input) {
         // given, when, then
         assertThatThrownBy(() -> ConvertUtil.convertToDay(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -23,7 +23,7 @@ class ConvertUtilTest {
     @DisplayName("날짜 입력값이 비어있는 경우에 대한 예외 처리")
     @ParameterizedTest
     @EmptySource
-    void dayIsEmpty(String input) {
+    void dayIsEmpty(final String input) {
         // given, when, then
         assertThatThrownBy(() -> ConvertUtil.convertToDay(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -33,7 +33,7 @@ class ConvertUtilTest {
     @DisplayName("숫자가 아닌 날짜 입력값에 대한 예외 처리")
     @ValueSource(strings = {"+", "-", "1a", "a1", "1+", "1-"})
     @ParameterizedTest
-    void dayNotNumber(String input) {
+    void dayNotNumber(final String input) {
         // given, when, then
         assertThatThrownBy(() -> ConvertUtil.convertToDay(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -43,7 +43,7 @@ class ConvertUtilTest {
     @DisplayName("메뉴 개수 입력값이 null인 경우에 대한 예외 처리")
     @ParameterizedTest
     @NullSource
-    void menuNumberIsNull(String input) {
+    void menuNumberIsNull(final String input) {
         // given, when, then
         assertThatThrownBy(() -> ConvertUtil.convertToMenuNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -53,7 +53,7 @@ class ConvertUtilTest {
     @DisplayName("메뉴 개수 입력값이 비어있는 경우에 대한 예외 처리")
     @ParameterizedTest
     @EmptySource
-    void menuNumberIsEmpty(String input) {
+    void menuNumberIsEmpty(final String input) {
         // given, when, then
         assertThatThrownBy(() -> ConvertUtil.convertToMenuNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -63,7 +63,7 @@ class ConvertUtilTest {
     @DisplayName("숫자가 아닌 메뉴 개수 입력값에 대한 예외 처리")
     @ValueSource(strings = {"+", "-", "1a", "a1", "1+", "1-"})
     @ParameterizedTest
-    void menuNumberNotNumber(String input) {
+    void menuNumberNotNumber(final String input) {
         // given, when, then
         assertThatThrownBy(() -> ConvertUtil.convertToMenuNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)

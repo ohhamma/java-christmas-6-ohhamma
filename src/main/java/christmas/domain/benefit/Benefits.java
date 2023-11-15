@@ -10,11 +10,11 @@ public class Benefits {
     Discounts discounts;
     Giveaways giveaways;
 
-    public void initDiscounts(Visit visit) {
+    public void initDiscounts(final Visit visit) {
         this.discounts = DiscountsGenerator.generate(visit);
     }
 
-    public void initGiveaways(Visit visit) {
+    public void initGiveaways(final Visit visit) {
         this.giveaways = GiveawaysGenerator.generate(visit);
     }
 

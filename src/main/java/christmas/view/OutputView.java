@@ -8,7 +8,7 @@ import christmas.util.StringUtil;
 import christmas.view.message.OutputMessage;
 
 public class OutputView {
-    public void printException(String exception) {
+    public void printException(final String exception) {
         System.out.println(OutputMessage.ERROR_PREFIX.getMessage() + exception);
     }
 
@@ -16,22 +16,22 @@ public class OutputView {
         System.out.println(OutputMessage.INTRODUCE.getMessage());
     }
 
-    public void printDate(Date visitDate) {
+    public void printDate(final Date visitDate) {
         printNewLine();
         System.out.println(StringUtil.generateDate(visitDate) + OutputMessage.INFORM_VISIT.getMessage());
     }
 
-    public void printOrder(Order order) {
+    public void printOrder(final Order order) {
         printNewLine();
         System.out.println(StringUtil.generateLabel(OutputMessage.ORDER_LABEL.getMessage()) + order);
     }
 
-    public void printTotalOrderAmount(int totalOrderAmount) {
+    public void printTotalOrderAmount(final int totalOrderAmount) {
         printNewLine();
         System.out.println(StringUtil.generateLabel(OutputMessage.TOTAL_ORDER_AMOUNT_LABEL.getMessage()) + StringUtil.generateMoney(totalOrderAmount));
     }
 
-    public void printGiveaways(Giveaways giveaways) {
+    public void printGiveaways(final Giveaways giveaways) {
         printNewLine();
         if (giveaways.hasApplicable()) {
             System.out.println(StringUtil.generateLabel(OutputMessage.GIVEAWAY_LABEL.getMessage()) + giveaways);
@@ -40,7 +40,7 @@ public class OutputView {
         System.out.println(StringUtil.generateLabel(OutputMessage.GIVEAWAY_LABEL.getMessage()) + OutputMessage.NOT_APPLICABLE.getMessage());
     }
 
-    public void printBenefits(Benefits benefits) {
+    public void printBenefits(final Benefits benefits) {
         printNewLine();
         if (benefits.hasApplicable()) {
             System.out.println(StringUtil.generateLabel(OutputMessage.BENEFIT_LABEL.getMessage()) + benefits);
@@ -49,17 +49,17 @@ public class OutputView {
         System.out.println(StringUtil.generateLabel(OutputMessage.BENEFIT_LABEL.getMessage()) + OutputMessage.NOT_APPLICABLE.getMessage());
     }
 
-    public void printTotalBenefitAmount(int totalBenefitAmount) {
+    public void printTotalBenefitAmount(final int totalBenefitAmount) {
         printNewLine();
         System.out.println(StringUtil.generateLabel(OutputMessage.TOTAL_BENEFIT_AMOUNT_LABEL.getMessage()) + StringUtil.generateMoney(totalBenefitAmount * -1));
     }
 
-    public void printPaymentAmount(int paymentAmount) {
+    public void printPaymentAmount(final int paymentAmount) {
         printNewLine();
         System.out.println(StringUtil.generateLabel(OutputMessage.PAYMENT_AMOUNT_LABEL.getMessage()) + StringUtil.generateMoney(paymentAmount));
     }
 
-    public void printBadge(String badge) {
+    public void printBadge(final String badge) {
         printNewLine();
         System.out.println(StringUtil.generateLabel(OutputMessage.BADGE_LABEL.getMessage()) + badge);
     }

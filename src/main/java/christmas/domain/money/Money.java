@@ -23,7 +23,7 @@ public class Money {
         return amount;
     }
 
-    private void validate(int amount) {
+    private void validate(final int amount) {
         if (amount < MONEY_MIN) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_MONEY.getMessage());
         }

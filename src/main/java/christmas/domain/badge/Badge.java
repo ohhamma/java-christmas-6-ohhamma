@@ -5,14 +5,14 @@ public interface Badge {
     int TREE_THRESHOLD = 10_000;
     int SANTA_THRESHOLD = 20_000;
 
-    static Badge from(int discount) {
-        if (discount >= SANTA_THRESHOLD) {
+    static Badge from(final int benefitAmount) {
+        if (benefitAmount >= SANTA_THRESHOLD) {
             return new SantaBadge();
         }
-        if (discount >= TREE_THRESHOLD) {
+        if (benefitAmount >= TREE_THRESHOLD) {
             return new TreeBadge();
         }
-        if (discount >= STAR_THRESHOLD) {
+        if (benefitAmount >= STAR_THRESHOLD) {
             return new StarBadge();
         }
         return new DefaultBadge();

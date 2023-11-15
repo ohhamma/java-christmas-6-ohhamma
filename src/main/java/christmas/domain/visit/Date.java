@@ -27,19 +27,19 @@ public class Date {
         }
     }
 
-    public boolean isEqual(LocalDate date) {
+    public boolean isEqual(final LocalDate date) {
         return this.date.equals(date);
     }
 
-    public boolean isBefore(LocalDate date) {
+    public boolean isBefore(final LocalDate date) {
         return this.date.isBefore(date);
     }
 
-    public boolean isAfter(LocalDate date) {
+    public boolean isAfter(final LocalDate date) {
         return this.date.isAfter(date);
     }
 
-    public int getPeriodFrom(LocalDate date) {
+    public int getPeriodFrom(final LocalDate date) {
         return Period.between(date, this.date).getDays();
     }
 
@@ -55,7 +55,7 @@ public class Date {
         return date.getDayOfWeek();
     }
 
-    private static void validate(LocalDate date) {
+    private static void validate(final LocalDate date) {
         if (date.isBefore(DATE_MIN) || date.isAfter(DATE_MAX)) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_DATE.getMessage());
         }

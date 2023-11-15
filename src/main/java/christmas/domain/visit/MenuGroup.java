@@ -15,19 +15,19 @@ public enum MenuGroup {
     private final String category;
     private final List<Menu> menus;
 
-    MenuGroup(String category, List<Menu> menus) {
+    MenuGroup(final String category, final List<Menu> menus) {
         this.category = category;
         this.menus = menus;
     }
 
-    public static MenuGroup getMenuGroupByMenu(Menu menu) {
+    public static MenuGroup getMenuGroupByMenu(final Menu menu) {
         return Arrays.stream(MenuGroup.values())
                 .filter(menuGroup -> menuGroup.hasMenu(menu))
                 .findAny()
                 .orElse(EMPTY);
     }
 
-    public boolean hasMenu(Menu menu) {
+    public boolean hasMenu(final Menu menu) {
         return menus.stream()
                 .anyMatch(m -> m == menu);
     }

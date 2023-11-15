@@ -5,7 +5,7 @@ import christmas.domain.badge.Badge;
 public class BadgeService {
     private Badge badge;
 
-    public void initBadge(int discount) {
+    public void initBadge(final int discount) {
         this.badge = Badge.from(discount);
     }
 

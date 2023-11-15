@@ -16,7 +16,7 @@ class OrderGeneratorTest {
     @DisplayName("비어있는 주문에 대한 예외 처리")
     @ParameterizedTest
     @EmptySource
-    void orderIsEmpty(String input) {
+    void orderIsEmpty(final String input) {
         // given, when, then
         assertThatThrownBy(() -> OrderGenerator.generate(List.of(input)))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -26,7 +26,7 @@ class OrderGeneratorTest {
     @DisplayName("잘못된 주문 형식에 대한 예외 처리")
     @ValueSource(strings = {",", "해산물파스타 2", "해산물파스타2", "해산물파스타-", "해산물파스타- 2", "해산물파스타 -2", "해산물파스타--2", "해산물파스타 --2", "해산물파스타- -2", "해산물파스타 --2", "해산물파스타-2,", ",해산물파스타-2", "해산물파스타-2, 레드와인-1"})
     @ParameterizedTest
-    void orderInvalidFormat(String input) {
+    void orderInvalidFormat(final String input) {
         // given, when, then
         assertThatThrownBy(() -> OrderGenerator.generate(List.of(input)))
                 .isInstanceOf(IllegalArgumentException.class)
