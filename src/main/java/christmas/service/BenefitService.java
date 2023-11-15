@@ -1,8 +1,8 @@
 package christmas.service;
 
-import christmas.domain.Benefits;
-import christmas.domain.Giveaways;
-import christmas.domain.Visit;
+import christmas.domain.benefit.Benefits;
+import christmas.domain.benefit.Giveaways;
+import christmas.domain.visit.Visit;
 
 public class BenefitService {
     Benefits benefits;

@@ -3,6 +3,7 @@ package christmas.view;
 import camp.nextstep.edu.missionutils.Console;
 import christmas.util.ConvertUtil;
 import christmas.util.SplitUtil;
+import christmas.view.message.InputMessage;
 
 import java.util.List;
 

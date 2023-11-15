@@ -1,6 +1,6 @@
 package christmas.service;
 
-import christmas.domain.Money;
+import christmas.domain.money.Money;
 
 public class MoneyService {
     Money money;

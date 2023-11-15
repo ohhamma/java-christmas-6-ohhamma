@@ -1,6 +1,6 @@
 package christmas.util;
 
-import christmas.domain.Date;
+import christmas.domain.visit.Date;
 
 public class StringUtil {
     public static String LABEL = "<%s>\n";

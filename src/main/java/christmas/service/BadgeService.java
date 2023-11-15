@@ -1,6 +1,6 @@
 package christmas.service;
 
-import christmas.domain.Badge;
+import christmas.domain.badge.Badge;
 
 public class BadgeService {
     private Badge badge;

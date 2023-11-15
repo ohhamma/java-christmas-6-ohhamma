@@ -1,10 +1,11 @@
 package christmas.view;
 
-import christmas.domain.Date;
-import christmas.domain.Benefits;
-import christmas.domain.Giveaways;
-import christmas.domain.Order;
+import christmas.domain.visit.Date;
+import christmas.domain.benefit.Benefits;
+import christmas.domain.benefit.Giveaways;
+import christmas.domain.visit.Order;
 import christmas.util.StringUtil;
+import christmas.view.message.OutputMessage;
 
 public class OutputView {
     public void printException(String exception) {
