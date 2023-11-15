@@ -2,6 +2,7 @@ package christmas.domain.visit;
 
 import christmas.domain.ExceptionMessage;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -30,13 +31,12 @@ class OrderGeneratorTest {
                 .hasMessage(ExceptionMessage.INVALID_ORDER.getMessage());
     }
 
-    @DisplayName("중복을 포함하는 주문에 대한 예외 처리")
-    @ValueSource(strings = {"해산물파스타-2"})
-    @ParameterizedTest
-    void duplicateOrders(String input) {
+    @DisplayName("중복 메뉴를 포함하는 주문에 대한 예외 처리")
+    @Test
+    void duplicateOrders() {
         List<String> menuOrders = new ArrayList<>();
-        menuOrders.add(input);
-        menuOrders.add(input);
+        menuOrders.add("해산물파스타-1");
+        menuOrders.add("해산물파스타-2");
 
         assertThatThrownBy(() -> OrderGenerator.generate(menuOrders))
                 .isInstanceOf(IllegalArgumentException.class)
