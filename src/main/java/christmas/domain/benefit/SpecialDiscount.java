@@ -5,16 +5,11 @@ import christmas.util.StringUtil;
 
 import java.time.LocalDate;
 
-public class SpecialDiscount implements Discount {
+public record SpecialDiscount(int amount) implements Discount {
     private static final LocalDate DATE_MIN = LocalDate.of(2023, 12, 1);
     private static final LocalDate DATE_MAX = LocalDate.of(2023, 12, 31);
     private static final DateDiscount DISCOUNT_TYPE = DateDiscount.SPECIAL_DISCOUNT;
     private static final String DISCOUNT_NAME = "특별 할인";
-    private final int amount;
-
-    public SpecialDiscount(final int amount) {
-        this.amount = amount;
-    }
 
     public static int calculateAmount(Date visitDate) {
         if (visitDate.isBefore(DATE_MIN) || visitDate.isAfter(DATE_MAX)) {
@@ -24,11 +19,6 @@ public class SpecialDiscount implements Discount {
             return 0;
         }
         return DISCOUNT_TYPE.getAmount();
-    }
-
-    @Override
-    public int getAmount() {
-        return amount;
     }
 
     @Override

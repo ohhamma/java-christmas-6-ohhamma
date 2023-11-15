@@ -20,9 +20,9 @@ class ChampagneGiveawayTest {
         List<String> menuOrders = new ArrayList<>();
         menuOrders.add(menuOrder);
 
-        ChampagneGiveaway champagneGiveaway = Giveaway.generateChampangeGiveaway(Date.from(25), OrderGenerator.generate(menuOrders));
+        ChampagneGiveaway champagneGiveaway = Giveaway.generateChampagneGiveaway(Date.from(25), OrderGenerator.generate(menuOrders));
 
-        assertEquals(0, champagneGiveaway.getAmount());
+        assertEquals(0, champagneGiveaway.amount());
     }
 
     @DisplayName("할인 전 총주문 금액이 120,000원보다 크면 샴페인 증정 (할인 금액 25,000원)")
@@ -34,8 +34,8 @@ class ChampagneGiveawayTest {
         menuOrders.add("아이스크림-1");
         menuOrders.add("레드와인-1");
 
-        ChampagneGiveaway champagneGiveaway = Giveaway.generateChampangeGiveaway(Date.from(25), OrderGenerator.generate(menuOrders));
+        ChampagneGiveaway champagneGiveaway = Giveaway.generateChampagneGiveaway(Date.from(25), OrderGenerator.generate(menuOrders));
 
-        assertEquals(25_000, champagneGiveaway.getAmount());
+        assertEquals(25_000, champagneGiveaway.amount());
     }
 }

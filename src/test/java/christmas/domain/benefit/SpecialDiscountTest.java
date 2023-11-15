@@ -14,7 +14,7 @@ class SpecialDiscountTest {
     void dateNotSpecial(int date) {
         SpecialDiscount specialDiscount = Discount.generateSpecialDiscount(Date.from(date));
 
-        assertEquals(0, specialDiscount.getAmount());
+        assertEquals(0, specialDiscount.amount());
     }
 
     @DisplayName("방문 날짜가 지정된 날짜면 할인금액이 1,000원")
@@ -23,6 +23,6 @@ class SpecialDiscountTest {
     void dateIsSpecial(int date) {
         SpecialDiscount specialDiscount = Discount.generateSpecialDiscount(Date.from(date));
 
-        assertEquals(1_000, specialDiscount.getAmount());
+        assertEquals(1_000, specialDiscount.amount());
     }
 }

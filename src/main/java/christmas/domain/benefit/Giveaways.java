@@ -17,7 +17,7 @@ public class Giveaways {
 
     public int getTotalGiveawayAmount() {
         return giveaways.stream()
-                .mapToInt(Giveaway::getAmount)
+                .mapToInt(Giveaway::amount)
                 .sum();
     }
 

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Discounts {
+    private static final String DISCOUNTS_DELIMITER = "\n";
     private final List<Discount> discounts;
 
     private Discounts(final List<Discount> discounts) {
@@ -16,7 +17,7 @@ public class Discounts {
 
     public int getTotalDiscountAmount() {
         return discounts.stream()
-                .mapToInt(Discount::getAmount)
+                .mapToInt(Discount::amount)
                 .sum();
     }
 
@@ -30,6 +31,6 @@ public class Discounts {
         return discounts.stream()
                 .filter(Discount::isApplicable)
                 .map(Discount::toString)
-                .collect(Collectors.joining("\n"));
+                .collect(Collectors.joining(DISCOUNTS_DELIMITER));
     }
 }

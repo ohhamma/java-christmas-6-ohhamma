@@ -16,7 +16,7 @@ public class GiveawaysGenerator {
         if (visit.getOrder().getTotalOrderAmount() < GIVEAWAY_THRESHOLD) {
             return Giveaways.valueOf(giveaways);
         }
-        giveaways.add(Giveaway.generateChampangeGiveaway(visit.getDate(), visit.getOrder()));
+        giveaways.add(Giveaway.generateChampagneGiveaway(visit.getDate(), visit.getOrder()));
         return Giveaways.valueOf(giveaways);
     }
 }

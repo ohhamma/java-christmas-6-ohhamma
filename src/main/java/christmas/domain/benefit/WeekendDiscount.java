@@ -6,16 +6,11 @@ import christmas.util.StringUtil;
 
 import java.time.LocalDate;
 
-public class WeekendDiscount implements Discount {
+public record WeekendDiscount(int amount) implements Discount {
     private static final LocalDate DATE_MIN = LocalDate.of(2023, 12, 1);
     private static final LocalDate DATE_MAX = LocalDate.of(2023, 12, 31);
     private static final DayOfWeekDiscount DISCOUNT_TYPE = DayOfWeekDiscount.WEEKEND_DISCOUNT;
     private static final String DISCOUNT_NAME = "주말 할인";
-    private final int amount;
-
-    public WeekendDiscount(final int amount) {
-        this.amount = amount;
-    }
 
     public static int calculateAmount(Date visitDate, final Order visitOrder) {
         if (visitDate.isBefore(DATE_MIN) || visitDate.isAfter(DATE_MAX)) {
@@ -25,11 +20,6 @@ public class WeekendDiscount implements Discount {
             return 0;
         }
         return visitOrder.countMenuByMenuGroup(DayOfWeekDiscount.WEEKEND_DISCOUNT.getMenuGroup()) * DISCOUNT_TYPE.getAmount();
-    }
-
-    @Override
-    public int getAmount() {
-        return amount;
     }
 
     @Override

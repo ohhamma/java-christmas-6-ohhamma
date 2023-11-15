@@ -22,7 +22,7 @@ public interface Discount {
         return new SpecialDiscount(SpecialDiscount.calculateAmount((visitDate)));
     }
 
-    int getAmount();
+    int amount();
 
     String getName();
 
