@@ -1,6 +1,7 @@
 package christmas.domain.visit;
 
 import christmas.domain.ExceptionMessage;
+import christmas.util.StringUtil;
 
 import java.util.EnumMap;
 import java.util.List;
@@ -9,6 +10,8 @@ import java.util.stream.Collectors;
 public class Order {
     private static final int MENU_NUMBER_THRESHOLD = 1;
     private static final int TOTAL_MENU_NUMBER_MAX = 20;
+    private static final String MENU_DELIMITER = " ";
+    private static final String ORDER_DELIMITER = "\n";
     private final EnumMap<Menu, Integer> order;
 
     private Order(final EnumMap<Menu, Integer> order) {
@@ -76,7 +79,7 @@ public class Order {
     public String toString() {
         return order.keySet()
                 .stream()
-                .map(menu -> menu.getName() + " " + order.get(menu) + "개")
-                .collect(Collectors.joining("\n"));
+                .map(menu -> String.join(MENU_DELIMITER, menu.getName(), StringUtil.generateNumber(order.get(menu))))
+                .collect(Collectors.joining(ORDER_DELIMITER));
     }
 }
