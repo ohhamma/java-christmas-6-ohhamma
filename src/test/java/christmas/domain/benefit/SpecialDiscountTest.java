@@ -17,7 +17,7 @@ class SpecialDiscountTest {
         assertEquals(0, specialDiscount.getAmount());
     }
 
-    @DisplayName("방문 날짜가 지정된 날짜면 할인금액이 0원")
+    @DisplayName("방문 날짜가 지정된 날짜면 할인금액이 1,000원")
     @ValueSource(ints = {3, 10, 17, 24, 25, 31})
     @ParameterizedTest
     void dateIsSpecial(int date) {

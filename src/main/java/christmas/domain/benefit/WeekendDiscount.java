@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class WeekendDiscount implements Discount {
     private static final LocalDate DATE_MIN = LocalDate.of(2023, 12, 1);
     private static final LocalDate DATE_MAX = LocalDate.of(2023, 12, 31);
-    private static final int DISCOUNT_AMOUNT = DayOfWeekDiscount.WEEKEND_DISCOUNT.getAmount();
+    private static final DayOfWeekDiscount DISCOUNT_TYPE = DayOfWeekDiscount.WEEKEND_DISCOUNT;
     private static final String DISCOUNT_NAME = "주말 할인";
     private final int amount;
 
@@ -21,10 +21,10 @@ public class WeekendDiscount implements Discount {
         if (visitDate.isBefore(DATE_MIN) || visitDate.isAfter(DATE_MAX)) {
             return 0;
         }
-        if (DayOfWeekDiscount.getDayOfWeekDiscountByDate(visitDate) != DayOfWeekDiscount.WEEKEND_DISCOUNT) {
+        if (DayOfWeekDiscount.getDayOfWeekDiscountByDate(visitDate) != DISCOUNT_TYPE) {
             return 0;
         }
-        return visitOrder.countMenuByMenuGroup(DayOfWeekDiscount.WEEKEND_DISCOUNT.getMenuGroup()) * DISCOUNT_AMOUNT;
+        return visitOrder.countMenuByMenuGroup(DayOfWeekDiscount.WEEKEND_DISCOUNT.getMenuGroup()) * DISCOUNT_TYPE.getAmount();
     }
 
     @Override
@@ -44,6 +44,6 @@ public class WeekendDiscount implements Discount {
 
     @Override
     public String toString() {
-        return String.join(": ", DISCOUNT_NAME, StringUtil.generateMoney(amount * -1));
+        return String.join(DISCOUNT_DELIMITER, DISCOUNT_NAME, StringUtil.generateMoney(amount * -1));
     }
 }

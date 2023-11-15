@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class SpecialDiscount implements Discount {
     private static final LocalDate DATE_MIN = LocalDate.of(2023, 12, 1);
     private static final LocalDate DATE_MAX = LocalDate.of(2023, 12, 31);
-    private static final int DISCOUNT_AMOUNT = DateDiscount.SPECIAL_DISCOUNT.getAmount();
+    private static final DateDiscount DISCOUNT_TYPE = DateDiscount.SPECIAL_DISCOUNT;
     private static final String DISCOUNT_NAME = "특별 할인";
     private final int amount;
 
@@ -23,7 +23,7 @@ public class SpecialDiscount implements Discount {
         if (DateDiscount.getDateDiscountByDate(visitDate) != DateDiscount.SPECIAL_DISCOUNT) {
             return 0;
         }
-        return DISCOUNT_AMOUNT;
+        return DISCOUNT_TYPE.getAmount();
     }
 
     @Override
@@ -43,6 +43,6 @@ public class SpecialDiscount implements Discount {
 
     @Override
     public String toString() {
-        return String.join(": ", DISCOUNT_NAME, StringUtil.generateMoney(amount * -1));
+        return String.join(DISCOUNT_DELIMITER, DISCOUNT_NAME, StringUtil.generateMoney(amount * -1));
     }
 }

@@ -41,6 +41,6 @@ public class ChristmasDiscount implements Discount {
 
     @Override
     public String toString() {
-        return DISCOUNT_NAME + ": " + StringUtil.generateMoney(amount * -1);
+        return String.join(DISCOUNT_DELIMITER, DISCOUNT_NAME, StringUtil.generateMoney(amount * -1));
     }
 }

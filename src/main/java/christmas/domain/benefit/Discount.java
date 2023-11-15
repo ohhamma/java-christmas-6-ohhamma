@@ -4,6 +4,8 @@ import christmas.domain.visit.Date;
 import christmas.domain.visit.Order;
 
 public interface Discount {
+    String DISCOUNT_DELIMITER = ": ";
+
     static ChristmasDiscount generateChristmasDiscount(final Date visitDate) {
         return new ChristmasDiscount(ChristmasDiscount.calculateAmount(visitDate));
     }
