@@ -14,13 +14,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class GiveawaysGeneratorTest {
     @DisplayName("총주문 금액 10,000원보다 적으면 증정 금액 0원")
     @Test
-    void totalOrderAmountLessThan10000() {
+    void totalOrderAmountUnderThreshold() {
+        // given
         List<String> menuOrders = new ArrayList<>();
         menuOrders.add("양송이수프-1");
 
+        // when
         Visit visit = Visit.of(Date.from(25), OrderGenerator.generate(menuOrders));
         Giveaways giveaways = GiveawaysGenerator.generate(visit);
 
+        // then
         assertEquals(0, giveaways.getTotalGiveawayAmount());
     }
 }

@@ -14,6 +14,7 @@ class ConvertUtilTest {
     @ParameterizedTest
     @NullSource
     void dayIsNull(String input) {
+        // given, when, then
         assertThatThrownBy(() -> ConvertUtil.convertToDay(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INVALID_DATE.getMessage());
@@ -23,6 +24,7 @@ class ConvertUtilTest {
     @ParameterizedTest
     @EmptySource
     void dayIsEmpty(String input) {
+        // given, when, then
         assertThatThrownBy(() -> ConvertUtil.convertToDay(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INVALID_DATE.getMessage());
@@ -32,6 +34,7 @@ class ConvertUtilTest {
     @ValueSource(strings = {"+", "-", "1a", "a1", "1+", "1-"})
     @ParameterizedTest
     void dayNotNumber(String input) {
+        // given, when, then
         assertThatThrownBy(() -> ConvertUtil.convertToDay(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INVALID_DATE.getMessage());
@@ -41,6 +44,7 @@ class ConvertUtilTest {
     @ParameterizedTest
     @NullSource
     void menuNumberIsNull(String input) {
+        // given, when, then
         assertThatThrownBy(() -> ConvertUtil.convertToMenuNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INVALID_ORDER.getMessage());
@@ -50,6 +54,7 @@ class ConvertUtilTest {
     @ParameterizedTest
     @EmptySource
     void menuNumberIsEmpty(String input) {
+        // given, when, then
         assertThatThrownBy(() -> ConvertUtil.convertToMenuNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INVALID_ORDER.getMessage());
@@ -59,6 +64,7 @@ class ConvertUtilTest {
     @ValueSource(strings = {"+", "-", "1a", "a1", "1+", "1-"})
     @ParameterizedTest
     void menuNumberNotNumber(String input) {
+        // given, when, then
         assertThatThrownBy(() -> ConvertUtil.convertToMenuNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INVALID_ORDER.getMessage());

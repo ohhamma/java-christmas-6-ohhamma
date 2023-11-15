@@ -11,9 +11,13 @@ class MenuGroupTest {
     @ValueSource(strings = {"연어샐러드", "봉골레파스타", "고구마파스타", "화이트와인"})
     @ParameterizedTest
     void menuNameInvalid(String menuName) {
+        // given
         Menu menu = Menu.getMenuByName(menuName);
+
+        // when
         MenuGroup menuGroup = MenuGroup.getMenuGroupByMenu(menu);
 
+        // then
         assertEquals(MenuGroup.EMPTY, menuGroup);
     }
 
@@ -21,9 +25,13 @@ class MenuGroupTest {
     @ValueSource(strings = {"양송이수프", "타파스", "시저샐러드"})
     @ParameterizedTest
     void menuInAppetizer(String menuName) {
+        // given
         Menu menu = Menu.getMenuByName(menuName);
+
+        // when
         MenuGroup menuGroup = MenuGroup.getMenuGroupByMenu(menu);
 
+        // then
         assertEquals(MenuGroup.APPETIZER, menuGroup);
     }
 
@@ -31,9 +39,13 @@ class MenuGroupTest {
     @ValueSource(strings = {"티본스테이크", "바비큐립", "해산물파스타", "크리스마스파스타"})
     @ParameterizedTest
     void menuInMain(String menuName) {
+        // given
         Menu menu = Menu.getMenuByName(menuName);
+
+        // when
         MenuGroup menuGroup = MenuGroup.getMenuGroupByMenu(menu);
 
+        // then
         assertEquals(MenuGroup.MAIN, menuGroup);
     }
 
@@ -41,9 +53,13 @@ class MenuGroupTest {
     @ValueSource(strings = {"초코케이크", "아이스크림"})
     @ParameterizedTest
     void menuInDessert(String menuName) {
+        // given
         Menu menu = Menu.getMenuByName(menuName);
+
+        // when
         MenuGroup menuGroup = MenuGroup.getMenuGroupByMenu(menu);
 
+        // then
         assertEquals(MenuGroup.DESSERT, menuGroup);
     }
 
@@ -51,9 +67,13 @@ class MenuGroupTest {
     @ValueSource(strings = {"제로콜라", "레드와인", "샴페인"})
     @ParameterizedTest
     void menuInBeverage(String menuName) {
+        // given
         Menu menu = Menu.getMenuByName(menuName);
+
+        // when
         MenuGroup menuGroup = MenuGroup.getMenuGroupByMenu(menu);
 
+        // then
         assertEquals(MenuGroup.BEVERAGE, menuGroup);
     }
 }

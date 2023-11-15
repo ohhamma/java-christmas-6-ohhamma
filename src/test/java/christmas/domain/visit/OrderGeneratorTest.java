@@ -17,6 +17,7 @@ class OrderGeneratorTest {
     @ParameterizedTest
     @EmptySource
     void orderIsEmpty(String input) {
+        // given, when, then
         assertThatThrownBy(() -> OrderGenerator.generate(List.of(input)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INVALID_ORDER.getMessage());
@@ -25,7 +26,8 @@ class OrderGeneratorTest {
     @DisplayName("잘못된 주문 형식에 대한 예외 처리")
     @ValueSource(strings = {",", "해산물파스타 2", "해산물파스타2", "해산물파스타-", "해산물파스타- 2", "해산물파스타 -2", "해산물파스타--2", "해산물파스타 --2", "해산물파스타- -2", "해산물파스타 --2", "해산물파스타-2,", ",해산물파스타-2", "해산물파스타-2, 레드와인-1"})
     @ParameterizedTest
-    void invalidFormat(String input) {
+    void orderInvalidFormat(String input) {
+        // given, when, then
         assertThatThrownBy(() -> OrderGenerator.generate(List.of(input)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INVALID_ORDER.getMessage());
@@ -34,10 +36,12 @@ class OrderGeneratorTest {
     @DisplayName("중복 메뉴를 포함하는 주문에 대한 예외 처리")
     @Test
     void duplicateOrders() {
+        // given
         List<String> menuOrders = new ArrayList<>();
         menuOrders.add("해산물파스타-1");
         menuOrders.add("해산물파스타-2");
 
+        // when, then
         assertThatThrownBy(() -> OrderGenerator.generate(menuOrders))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INVALID_ORDER.getMessage());

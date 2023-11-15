@@ -15,6 +15,7 @@ class DateTest {
     @ValueSource(ints = {-100, -1, 0, 32, 100})
     @ParameterizedTest
     void dateOutOfRange(int day) {
+        // given, when, then
         assertThatThrownBy(() -> Date.from(day))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INVALID_DATE.getMessage());
@@ -23,10 +24,14 @@ class DateTest {
     @DisplayName("방문 날짜가 유효한 경우에 대한 확인")
     @ValueSource(ints = {1, 15, 31})
     @ParameterizedTest
-    void dateIsValid(int day) {
+    void dateValid(int day) {
+        // given
         Date date = Date.from(day);
+
+        // when
         LocalDate localDate = LocalDate.of(2023, 12, day);
 
+        // then
         assertTrue(date.isEqual(localDate));
     }
 }

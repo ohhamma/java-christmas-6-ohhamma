@@ -12,9 +12,13 @@ class DayOfWeekDiscountTest {
     @ValueSource(ints = {3, 4, 5, 6, 7})
     @ParameterizedTest
     void dateInWeekdayDiscount(int day) {
+        // given
         Date date = Date.from(day);
+
+        // when
         DayOfWeekDiscount dayOfWeekDiscount = DayOfWeekDiscount.getDayOfWeekDiscountByDate(date);
 
+        // then
         assertEquals(DayOfWeekDiscount.WEEKDAY_DISCOUNT, dayOfWeekDiscount);
     }
 
@@ -22,9 +26,13 @@ class DayOfWeekDiscountTest {
     @ValueSource(ints = {8, 9})
     @ParameterizedTest
     void dateInWeekendDiscount(int day) {
+        // given
         Date date = Date.from(day);
+
+        // when
         DayOfWeekDiscount dayOfWeekDiscount = DayOfWeekDiscount.getDayOfWeekDiscountByDate(date);
 
+        // then
         assertEquals(DayOfWeekDiscount.WEEKEND_DISCOUNT, dayOfWeekDiscount);
     }
 }
