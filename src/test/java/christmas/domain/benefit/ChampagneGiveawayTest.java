@@ -16,7 +16,7 @@ class ChampagneGiveawayTest {
     @DisplayName("할인 전 총주문 금액이 120,000원보다 작으면 할인금액이 0원")
     @ValueSource(strings = {"티본스테이크-1"})
     @ParameterizedTest
-    void totalOrderPriceLessThanThreshold(String menuOrder) {
+    void totalOrderPriceLessThanChampagneGiveawayThreshold(String menuOrder) {
         List<String> menuOrders = new ArrayList<>();
         menuOrders.add(menuOrder);
 

@@ -6,6 +6,7 @@ public class StringUtil {
     public static String LABEL = "<%s>\n";
     public static String DATE = "%d월 %d일";
     public static String MONEY = "%,d원";
+    public static String NUMBER = "%d개";
 
     private StringUtil() {
     }
@@ -20,5 +21,9 @@ public class StringUtil {
 
     public static String generateMoney(int money) {
         return String.format(MONEY, money);
+    }
+
+    public static String generateNumber(int number) {
+        return String.format(NUMBER, number);
     }
 }

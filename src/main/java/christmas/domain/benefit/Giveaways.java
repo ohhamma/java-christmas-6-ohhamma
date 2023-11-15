@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Giveaways {
+    private static final String GIVEAWAYS_DELIMITER = "\n";
     private final List<Giveaway> giveaways;
 
     private Giveaways(final List<Giveaway> giveaways) {
@@ -30,6 +31,6 @@ public class Giveaways {
         return giveaways.stream()
                 .filter(Giveaway::isApplicable)
                 .map(Giveaway::toString)
-                .collect(Collectors.joining("\n"));
+                .collect(Collectors.joining(GIVEAWAYS_DELIMITER));
     }
 }

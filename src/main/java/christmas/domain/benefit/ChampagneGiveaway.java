@@ -3,6 +3,7 @@ package christmas.domain.benefit;
 import christmas.domain.visit.Menu;
 import christmas.domain.visit.Date;
 import christmas.domain.visit.Order;
+import christmas.util.StringUtil;
 
 import java.time.LocalDate;
 
@@ -40,6 +41,6 @@ public class ChampagneGiveaway implements Giveaway {
 
     @Override
     public String toString() {
-        return String.join(" ", GIVEAWAY_MENU.getName(), GIVEAWAY_NUMBER + "개");
+        return String.join(GIVEAWAY_DELIMITER, GIVEAWAY_MENU.getName(), StringUtil.generateNumber(GIVEAWAY_NUMBER));
     }
 }
