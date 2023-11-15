@@ -1,6 +1,6 @@
 package christmas.util;
 
-import christmas.domain.ExceptionMessage;
+import christmas.domain.exception.ExceptionMessage;
 
 import java.util.List;
 

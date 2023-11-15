@@ -1,6 +1,6 @@
 package christmas.domain.money;
 
-import christmas.domain.ExceptionMessage;
+import christmas.domain.exception.ExceptionMessage;
 
 public class Money {
     private final static int MONEY_MIN = 0;

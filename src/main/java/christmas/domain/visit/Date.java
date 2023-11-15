@@ -1,6 +1,6 @@
 package christmas.domain.visit;
 
-import christmas.domain.ExceptionMessage;
+import christmas.domain.exception.ExceptionMessage;
 
 import java.time.DateTimeException;
 import java.time.DayOfWeek;

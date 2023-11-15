@@ -1,6 +1,6 @@
 package christmas.domain.visit;
 
-import christmas.domain.ExceptionMessage;
+import christmas.domain.exception.ExceptionMessage;
 import christmas.util.StringUtil;
 
 import java.util.EnumMap;

@@ -1,6 +1,6 @@
 package christmas.util;
 
-import christmas.domain.ExceptionMessage;
+import christmas.domain.exception.ExceptionMessage;
 
 public class ConvertUtil {
     private ConvertUtil() {
