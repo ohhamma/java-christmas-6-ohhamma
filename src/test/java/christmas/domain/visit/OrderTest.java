@@ -44,7 +44,7 @@ public class OrderTest {
 
         assertThatThrownBy(() -> Order.valueOf(order))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ExceptionMessage.INVALID_ORDER_BEVERAGE.getMessage());
+                .hasMessage(ExceptionMessage.INVALID_ORDER.getMessage());
     }
 
     @DisplayName("주문 개수가 총 20개를 초과하는 경우에 대한 예외 처리")
@@ -58,6 +58,6 @@ public class OrderTest {
 
         assertThatThrownBy(() -> Order.valueOf(order))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ExceptionMessage.INVALID_ORDER_TOTAL_MENU_NUMBER.getMessage());
+                .hasMessage(ExceptionMessage.INVALID_ORDER.getMessage());
     }
 }

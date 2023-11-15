@@ -62,7 +62,7 @@ public class Order {
                 .stream()
                 .allMatch(menu -> MenuGroup.getMenuGroupByMenu(menu) == MenuGroup.BEVERAGE);
         if (isAllBeverage) {
-            throw new IllegalArgumentException(ExceptionMessage.INVALID_ORDER_BEVERAGE.getMessage());
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_ORDER.getMessage());
         }
     }
 
@@ -71,7 +71,7 @@ public class Order {
                 .stream()
                 .reduce(0, Integer::sum);
         if (totalMenuNumber > TOTAL_MENU_NUMBER_MAX) {
-            throw new IllegalArgumentException(ExceptionMessage.INVALID_ORDER_TOTAL_MENU_NUMBER.getMessage());
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_ORDER.getMessage());
         }
     }
 
