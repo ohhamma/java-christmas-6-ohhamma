@@ -15,4 +15,13 @@ class MoneyTest {
 
         assertEquals(0, money.getAmount());
     }
+
+    @DisplayName("돈이 유효한 경우에 대한 확인")
+    @ValueSource(ints = {0, 50, 100})
+    @ParameterizedTest
+    void amountMoreOrEqualToZero(int amount) {
+        Money money = Money.from(amount);
+
+        assertEquals(amount, money.getAmount());
+    }
 }
