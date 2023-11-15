@@ -4,6 +4,9 @@ import christmas.domain.visit.Visit;
 import christmas.util.StringUtil;
 
 public class Benefits {
+    private static final String BENEFITS_DELIMITER = "\n";
+    private static final String TOTAL_GIVEAWAY_AMOUNT_DELIMITER = ": ";
+    private static final String TOTAL_GIVEAWAY_AMOUNT_LABEL = "증정 이벤트";
     Discounts discounts;
     Giveaways giveaways;
 
@@ -33,6 +36,7 @@ public class Benefits {
 
     @Override
     public String toString() {
-        return String.join("\n", discounts.toString(), String.join(": ", "증정 이벤트", StringUtil.generateMoney(giveaways.getTotalGiveawayAmount() * -1)));
+        String totalGiveawayAmount = String.join(TOTAL_GIVEAWAY_AMOUNT_DELIMITER, TOTAL_GIVEAWAY_AMOUNT_LABEL, StringUtil.generateMoney(giveaways.getTotalGiveawayAmount() * -1));
+        return String.join(BENEFITS_DELIMITER, discounts.toString(), totalGiveawayAmount);
     }
 }
