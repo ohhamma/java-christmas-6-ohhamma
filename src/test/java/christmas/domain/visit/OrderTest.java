@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.EnumMap;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrderTest {
     @DisplayName("메뉴판에 없는 메뉴가 입력된 경우에 대한 예외 처리")
@@ -59,5 +60,24 @@ public class OrderTest {
         assertThatThrownBy(() -> Order.valueOf(order))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.INVALID_ORDER.getMessage());
+    }
+
+    @DisplayName("주문이 유효한 경우에 대한 확인")
+    @Test
+    void orderIsValid() {
+        EnumMap<Menu, Integer> order = new EnumMap<>(Menu.class);
+        order.put(Menu.T_BONE_STEAK, 1);
+        order.put(Menu.BBQ_RIBS, 1);
+        order.put(Menu.CHOCOLATE_CAKE, 2);
+        order.put(Menu.ZERO_COKE, 1);
+
+        Order validOrder = Order.valueOf(order);
+        int mainMenuCount = order.keySet()
+                .stream()
+                .filter(menu -> MenuGroup.getMenuGroupByMenu(menu) == MenuGroup.MAIN)
+                .mapToInt(order::get)
+                .sum();
+
+        assertEquals(mainMenuCount, validOrder.countMenuByMenuGroup(MenuGroup.MAIN));
     }
 }
